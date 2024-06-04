@@ -10,8 +10,8 @@ Cirrhosis results from prolonged liver damage, leading to extensive scarring, of
 __PHASE I: Data Cleaning__  
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
 - Next we checked for null values in the liver_cirhosis.csv file and removed any rows with null values.  
-- We also checked the data types for the columns in the dataframe.  
--  We wrote the data in the dataframe to a csv file, liver_clean.csv.   
+- We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.  
+-  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
 
 __PHASE 2: Preliminary Visualizations__   
 - Using a Jupyter Notebook and MatplotLib, we created overviews and summary statistics of the data in liver_clean.csv.
@@ -57,7 +57,7 @@ We decided to try using a Random Forest Model on the data because they are robus
 - After splitting the data into training and testing sets, we scaled the X_train, X_test, y_train, and y_test sets.
 - Then, we created a random forest classifier with 500 estimators and 42 random states.
 - After fitting the model on X_train_scaled and y_train, we used the model to make predictions with the test data, X_test_scaled.
-- 
+- We calculated and displayed the model's accuracy score and classification report, and used the seaborn heatmmap to produce a confusion matrix. 
 
 
 
