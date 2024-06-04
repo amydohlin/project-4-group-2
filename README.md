@@ -11,15 +11,14 @@ __PHASE I: Data Cleaning__
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
 - Next we checked for null values in the liver_cirhosis.csv file and removed any rows with null values.  
 - We also checked the data types for the columns in the dataframe.  
-- As the process of readhing the cvs file into the dataframe created a new index, identical to the the Unnamed column, we dropped the latter from the dataframe.  
-We wrote the data in the dataframe to a csv file, liver_clean.csv.   
+-  We wrote the data in the dataframe to a csv file, liver_clean.csv.   
 
 __PHASE 2: Preliminary Visualizations__   
 - Using a Jupyter Notebook and MatplotLib, we created overviews and summary statistics of the data in liver_clean.csv.
 - We also identified outliers in the data in order to drop outlying rows from the dataframe before modeling the data.
 
 __PHASE 3: Data Transformation__    
--  We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
+- We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
 - We generated a list of six categorial variables (.dtypes == "object") in order to run a single instance of OneHoteEncoder.
 - We created a dataframe of the encoded columns and their values, which all became 0.0 or 1.0. The number of features in the dataframe was now 27 at this point. 
 - We defined y as the values in the 'Stage' columns, whose values are all 1, 2, or 3.
@@ -31,7 +30,7 @@ __PHASE 4: Neural Network Models__
 Neural Network Model #1  
 - For the first iteration of the neural network model, we set the number of input features to be equal to the shape of the scaled X_train dataset.  
 - After defining a keras.Sequential() model, we added a first hidden layer with 8 nodes and a second hidden layer with 5 nodes. For the output layer we set the activation to 'sigmoid.' Hidden Layers 1 and 2 were activated with "relu".
-- After fittin, compiling, and training the model (100 epochs), we noted an accuracy score of 32.6%.  
+- After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 32.6%.  
 
 Neural Network Model #2  
 - For the second iteration of the neural network model, we doubled the nodes in the hidden layers to 16 and 10, respectively. All other layer characteristics remained the same as before.
@@ -44,13 +43,21 @@ Neural Network Model #3
 
 As none of these neural network models achieved high accuracy scores, we decided to try Principal Component Analysis to reduce the number of features. 
 
-*---- insert description of Tianyue's optimizations. -------*
+*---- insert description of Tianyue's optimizations and the results on the model. -------*
 
 __PHASE 5: Random Forest Models__   
+We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
 
-
-
-
+- As the process of reading the cvs file into the dataframe created a new index identical to the the Unnamed column, we dropped the latter and the 'Stage' feature from our definition of X.
+- The y variable remained as 'Stage'. 
+- Next we identified the categorical features in the dataframe by getting the counts of each value.
+- Because Edema had three values, not just Y or N like the other categorical fields, we set Edema aside to later apply the "get dummies" function.
+- For the categorical features with only two values, we replaced the Y values with 0s, the N values with 1s, the D-penicillamine value in Drug with 1s, and the Placebo value in Drug with 0. We set all new values to integer type.
+- We used the "get dummies" function to encode the remaining categorical variables, Status and Edema, and turn their values into integers.
+- After splitting the data into training and testing sets, we scaled the X_train, X_test, y_train, and y_test sets.
+- Then, we created a random forest classifier with 500 estimators and 42 random states.
+- After fitting the model on X_train_scaled and y_train, we used the model to make predictions with the test data, X_test_scaled.
+- 
 
 
 
