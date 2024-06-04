@@ -61,8 +61,10 @@ We decided to try using a Random Forest Model on the data because they are robus
 
 ![04](https://github.com/amydohlin/project-4-group-2/assets/151464511/1aa9b443-5e6e-4ecc-b153-a5f1a0a10197)
 
-
-
+- At 86.8%, the overall accuracy score was a significant improvement over the neural network models' accuracies. 
+- Precision and recall were also high, ranging from 83% to 91% and 86% to 91%, respectively
+- The Random Forest Model did a good job at classifying Stage 1, Stage 2, and Stage 3 liver cirrhosis.
+- Next, we evaluated the importance of the various features in the data.
 
 Create Training Model (Google Colab, incorporate SQL/Spark): Amy, Christine  
 Look at models like random forest, neural networks, etm.  
