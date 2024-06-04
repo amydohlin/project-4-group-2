@@ -4,9 +4,10 @@ Members: Amy Dohlin, Anna Bitzer, Tianyue Li, Christine Jauregui
 
 Topic: Liver Cirrhosis Prediction  
 Dataset: Liver Cirrhosis Stage Classification 🩺 (kaggle.com) (25,000+ rows)  
-Goal: Create, train and deploy a neural network machine learning model that can predict liver cirrhosis stage based on patient lab result data.  
+Goal: Create, train and deploy a neural network machine learning model that can predict liver cirrhosis stage based on patient lab result data. 
 
-Outline of Duties:  
+PHASE I: Data Cleaning
+Amy 
 Data Cleaning/ETL (Jupyter Notebook): Amy  
 Check for null values  
 Check data types  
