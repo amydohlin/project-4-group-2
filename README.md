@@ -59,6 +59,8 @@ We decided to try using a Random Forest Model on the data because they are robus
 - After fitting the model on X_train_scaled and y_train, we used the model to make predictions with the test data, X_test_scaled.
 - We calculated and displayed the model's accuracy score and classification report, and used the seaborn heatmmap to produce a confusion matrix. 
 
+![04](https://github.com/amydohlin/project-4-group-2/assets/151464511/1aa9b443-5e6e-4ecc-b153-a5f1a0a10197)
+
 
 
 
