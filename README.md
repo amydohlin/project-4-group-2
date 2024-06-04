@@ -5,6 +5,7 @@ Members: Amy Dohlin, Anna Bitzer, Tianyue Li, Christine Jauregui
 Topic: Liver Cirrhosis Stage Prediction  
 Dataset: Liver Cirrhosis Stage Classification 🩺 (kaggle.com) (25,000+ rows)  
 Goal: Create, train and deploy a neural network machine learning model that can predict liver cirrhosis stage based on patient lab result data.   
+Cirrhosis results from prolonged liver damage, leading to extensive scarring, often due to conditions like hepatitis or chronic alcohol consumption. The data provided is sourced from a Mayo Clinic study on primary biliary cirrhosis (PBC) of the liver carried out from 1974 to 1984.  
 
 __PHASE I: Data Cleaning__  
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
@@ -78,4 +79,4 @@ SQL / Spark
 Softmax  
 Data Bricks?  
 
-Cirrhosis results from prolonged liver damage, leading to extensive scarring, often due to conditions like hepatitis or chronic alcohol consumption. The data provided is sourced from a Mayo Clinic study on primary biliary cirrhosis (PBC) of the liver carried out from 1974 to 1984.
+
