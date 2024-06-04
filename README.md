@@ -7,7 +7,7 @@ Dataset: Liver Cirrhosis Stage Classification 🩺 (kaggle.com) (25,000+ rows)
 Goal: Create, train and deploy a neural network machine learning model that can predict liver cirrhosis stage based on patient lab result data. 
 
 PHASE I: Data Cleaning
-Amy 
+Amy used VSCode
 Data Cleaning/ETL (Jupyter Notebook): Amy  
 Check for null values  
 Check data types  
