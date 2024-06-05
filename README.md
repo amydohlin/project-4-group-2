@@ -37,7 +37,7 @@ __PHASE I: Data Cleaning__
 -  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
 
 __PHASE 2: Preliminary Visualizations__   
-- Using a Jupyter Notebook and MatplotLib, we created overviews and summary statistics of the data in liver_clean.csv.
+- Using a Jupyter Notebook and MatplotLib, we created overviews and summary statistics of the data in liver_clean.csv.  
  ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
 - We also identified outliers in the data in order to drop outlying rows from the dataframe before modeling the data.
 - We explored the relationship between 'Stage' and 'Number of Months' between registration and the earlier of death, transplantation, or study analysis time in 1986. The latter feature we calculated from the N_Days feature (Number of days between registration and the earlier of death, transplantation, or study analysis time in 1986).
