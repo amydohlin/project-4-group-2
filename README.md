@@ -77,7 +77,10 @@ c) the number of hidden layers and neurons in the layers
 
 *-----Include things about results of KerasTuner ------*
 - In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
-
+- The confusion matrix ...
+- 
+- The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
+- The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis. 
 ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
 
