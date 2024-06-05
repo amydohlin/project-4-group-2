@@ -34,12 +34,16 @@ __PHASE I: Data Cleaning__
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
 - Next we checked for null values in the liver_cirhosis.csv file and removed any rows with null values.  
 - We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.
-  ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
 -  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
 
 __PHASE 2: Preliminary Visualizations__   
 - Using a Jupyter Notebook and MatplotLib, we created overviews and summary statistics of the data in liver_clean.csv.
+ ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
 - We also identified outliers in the data in order to drop outlying rows from the dataframe before modeling the data.
+
+
+
+
 
 __PHASE 3: Data Transformation__    
 - We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
