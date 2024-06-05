@@ -41,11 +41,9 @@ __PHASE 2: Preliminary Visualizations__
  ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
 - We also identified outliers in the data in order to drop outlying rows from the dataframe before modeling the data.
 - We explored the relationship between 'Stage' and 'Number of Months' between registration and the earlier of death, transplantation, or study analysis time in 1986. The latter feature we calculated from the N_Days feature (Number of days between registration and the earlier of death, transplantation, or study analysis time in 1986).
+- The results were unsurprising. The lower the stage of Cirrhosis, the more time elapsed. 
 ![08](https://github.com/amydohlin/project-4-group-2/assets/151464511/1cab0863-ee66-44b7-bedb-c2d73a561498)
 ![09](https://github.com/amydohlin/project-4-group-2/assets/151464511/f5d97fa4-ef32-4f8c-984a-8bb74325df25)
-
-
-
 
 __PHASE 3: Data Transformation__    
 - We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
