@@ -41,7 +41,7 @@ __PHASE 2: Preliminary Visualizations__
  ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
 - We also identified outliers in the data in order to drop outlying rows from the dataframe before modeling the data.
 - We explored the relationship between 'Stage' and 'Number of Months' between registration and the earlier of death, transplantation, or study analysis time in 1986. The latter feature we calculated from the N_Days feature (Number of days between registration and the earlier of death, transplantation, or study analysis time in 1986).
-- The results were unsurprising. The lower the stage of Cirrhosis, the more time elapsed. 
+- The results were unsurprising. The lower the stage of Cirrhosis, the more time elapsed between patient registration and death, transplantation, or study analysis time. The more advanced the stage of the disease, the sooner the onset of death or liver transplantation.   
 ![08](https://github.com/amydohlin/project-4-group-2/assets/151464511/1cab0863-ee66-44b7-bedb-c2d73a561498)
 ![09](https://github.com/amydohlin/project-4-group-2/assets/151464511/f5d97fa4-ef32-4f8c-984a-8bb74325df25)
 
