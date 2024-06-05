@@ -9,10 +9,32 @@ Goal: Create, train and deploy a neural network machine learning model that can 
 What is Liver Cirrhosis?
 Cirrhosis results from prolonged liver damage, leading to extensive scarring, often due to conditions like hepatitis or chronic alcohol consumption. The data provided is sourced from a Mayo Clinic study on primary biliary cirrhosis (PBC) of the liver carried out from 1974 to 1984.  
 
+Attribute Information:  
+N_Days: Number of days between registration and the earlier of death, transplantation, or study analysis time in 1986  
+Status: status of the patient C (censored), CL (censored due to liver tx), or D (death)  
+Drug: type of drug D-penicillamine or placebo  
+Age: age in days  
+Sex: M (male) or F (female)  
+Ascites: presence of ascites N (No) or Y (Yes)  
+Hepatomegaly: presence of hepatomegaly N (No) or Y (Yes)  
+Spiders: presence of spiders N (No) or Y (Yes)  
+Edema: presence of edema N (no edema and no diuretic therapy for edema), S (edema present without diuretics, or edema resolved by diuretics), or Y (edema despite diuretic therapy)  
+Bilirubin: serum bilirubin in [mg/dl]  
+Cholesterol: serum cholesterol in [mg/dl]  
+Albumin: albumin in [gm/dl]  
+Copper: urine copper in [ug/day]  
+Alk_Phos: alkaline phosphatase in [U/liter]  
+SGOT: SGOT in [U/ml]  
+Tryglicerides: triglicerides in [mg/dl]  
+Platelets: platelets per cubic [ml/1000]  
+Prothrombin: prothrombin time in seconds [s]  
+Stage: histologic stage of disease ( 1, 2, or 3 )  
+
 __PHASE I: Data Cleaning__  
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
 - Next we checked for null values in the liver_cirhosis.csv file and removed any rows with null values.  
-- We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.  
+- We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.
+  ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
 -  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
 
 __PHASE 2: Preliminary Visualizations__   
