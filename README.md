@@ -43,11 +43,21 @@ Neural Network Model #3
 - The two new hidden layers also had activations of "relu".
 - This model version produced an accuracy score of 46.6%.
 
-As none of these neural network models achieved high accuracy scores, we decided to try Principal Component Analysis to reduce the number of features. 
+__PHASE 5: Model Optimization__  
+- As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide  
+a) which activation function to use
+b) the number of neurons in the first layer
+c) the number of hidden layers and neurons in the layers
 
-*---- insert description of Tianyue's optimizations and the results on the model. -------*
+*-----Include things about results of KerasTuner ------*
+- In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
 
-__PHASE 5: Random Forest Models__   
+![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
+
+
+
+
+__PHASE 6: Random Forest Models__   
 We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
 
 - As the process of reading the cvs file into the dataframe created a new index identical to the the Unnamed column, we dropped the latter and the 'Stage' feature from our definition of X.
