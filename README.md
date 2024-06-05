@@ -70,10 +70,10 @@ Neural Network Model #3
 - This model version produced an accuracy score of 46.6%.
 
 __PHASE 5: Model Optimization__  
-- As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide  
-a) which activation function to use
-b) the number of neurons in the first layer
-c) the number of hidden layers and neurons in the layers
+- As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide    
+a) which activation function to use  
+b) the number of neurons in the first layer  
+c) the number of hidden layers and neurons in the layers  
 
 *-----Include things about results of KerasTuner ------*
 - In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
