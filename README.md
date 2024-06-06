@@ -109,7 +109,8 @@ We decided to try using a Random Forest Model on the data because they are robus
 
 ![05](https://github.com/amydohlin/project-4-group-2/assets/151464511/cd661e6b-d6d3-45d0-9b83-9d8004675f46)
 
-
+With the classification results of the Random Forest Model we plotted a series of bar charts  in Tableau to visualize the importance of various features on the determindation of 'Stage'. 
+![Tableau Top 5 Random Forest Features](https://github.com/amydohlin/project-4-group-2/assets/151464511/0c4e03ce-8b5f-48c9-b712-fbfadeb8059e)
 
 
 
