@@ -115,8 +115,13 @@ __Prothrombin, feature importance 0.13__
 According to the Mayo Clinic, the protein Prothrombin is one of many factors in the blood that help it to clot. Prothrombin time is the number of seconds it takes for a patient's blood to clot. The Prothrombin time test is one of many tests used to check people for liver disease and to screen people waiting for liver transplants. Blood normally clots in 10 to 13 seconds. Liver damage is one cause of blood clotting slower than average. 
 
 - In the count of observations versus Prothrombin time graph, we see that most patients - including those with Stage 1, Stage 2 and Stage 3 of the disease - are within the normal range of 10 to 13 seconds.
-- This aligns with the fact that Prothrombin time is one, but not the only, factor _____ speed of blood clotting.   
+- This aligns with the fact that Prothrombin time is one, but not the only, factor in determining blood clotting speed.     
 
+__Platelets, feature importance 0.11__  
+Johns Hopkins School of Medicine describes a normal platelet count as 150,000 to 450,000 platelets per microliter of blood. People with more than 450,000 platelets have a condition called thrombocytosis. People with less than 150,000 have a condition called thrombocytopenia. Medical researchers have documented thrombocytopenia in up to 76% of patients with chronic liver disease, and approximately 13% of patients with cirrhosis. The condition can postpone or interefere with diagnostic and therapeutic procedures, as it increases the risk of bleeding in patients. 
+  
+- In the Platelets graph we can see that most of the Stage 1, Stage 2, and Stage 3 patients have platelet counts within the normal range.
+- At the same time, however, a large segment of Stage 3 patients are clustered at or around the 150,000 point. 
 
 ![Tableau Top 5 Random Forest Features](https://github.com/amydohlin/project-4-group-2/assets/151464511/0c4e03ce-8b5f-48c9-b712-fbfadeb8059e)
 
