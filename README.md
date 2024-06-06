@@ -33,9 +33,9 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 __PHASE I: Data Cleaning__  
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
 - Next we checked for null values in the liver_cirhosis.csv file and removed any rows with null values.  
-- We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.
-![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)
-- After removing duplicate records, the file dropped from 25,000 to 10,000 rows. 
+- We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.  
+![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)  
+- After removing duplicate records, the file dropped from 25,000 to 10,000 rows.   
 -  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
 
 __PHASE 2: Preliminary Visualizations__   
