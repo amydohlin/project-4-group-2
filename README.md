@@ -112,27 +112,38 @@ We decided to try using a Random Forest Model on the data because they are robus
 With the classification results of the Random Forest Model we plotted a series of bar charts  in Tableau to visualize the importance of various features on the determindation of 'Stage'. 
 
 __Prothrombin, feature importance 0.13__  
-According to the Mayo Clinic, the protein Prothrombin is one of many factors in the blood that help it to clot. Prothrombin time is the number of seconds it takes for a patient's blood to clot. The Prothrombin time test is one of many tests used to check people for liver disease and to screen people waiting for liver transplants. Blood normally clots in 10 to 13 seconds. Liver damage is one cause of blood clotting slower than average. 
+According to the Mayo Clinic, the protein Prothrombin is one of many factors in the blood that help it to clot. Prothrombin time is the number of seconds it takes for a patient's blood to clot. The Prothrombin time test is one of many tests used to check people for liver disease and to screen people waiting for liver transplants. Blood normally clots in 10 to 13 seconds. Liver damage is one cause of blood clotting slower than average.   
 
-- In the count of observations versus Prothrombin time graph, we see that most patients - including those with Stage 1, Stage 2 and Stage 3 of the disease - are within the normal range of 10 to 13 seconds.
-- Within that range, Stage 3 patients increase in counts as Prothrombin time increases. 
-- Meanwhile, Stage 1 and Stage 2 patients appear more heavily concentrated at the lower end of the normal range. 
-- These obervations align with the fact that Prothrombin time is one, but not the only, factor in determining blood clotting speed.
+- In the count of observations versus Prothrombin time graph, we see that most patients -- including those with Stage 1, Stage 2 and Stage 3 of the disease -- are within the normal range of 10 to 13 seconds.  
+- Within that range, Stage 3 patients increase in counts as Prothrombin time increases.   
+- Meanwhile, Stage 1 and Stage 2 patients appear more heavily concentrated at the lower end of the normal range.   
+- These obervations align with the fact that Prothrombin time is one, but not the only, factor in determining blood clotting speed.  
 - They also align with the fact that the blood's ability to clot decreases as disease worsens.   
 
 __Platelets, feature importance 0.11__  
-Johns Hopkins School of Medicine describes a normal platelet count as 150,000 to 450,000 platelets per microliter of blood. People with less than 150,000 have a condition called thrombocytopenia. This condition makes it more difficult for blood to clot. Medical researchers have documented thrombocytopenia in up to 76% of patients with chronic liver disease, and approximately 13% of patients with cirrhosis. The condition can postpone or interefere with diagnostic and therapeutic procedures, as it increases the risk of bleeding in patients. 
+Johns Hopkins School of Medicine describes a normal platelet count as 150,000 to 450,000 platelets per microliter of blood. People with less than 150,000 have a condition called thrombocytopenia. This condition makes it more difficult for blood to clot. Medical researchers have documented thrombocytopenia in up to 76% of patients with chronic liver disease, and approximately 13% of patients with cirrhosis. The condition can postpone or interefere with diagnostic and therapeutic procedures, as it increases the risk of bleeding in patients.   
   
-- In the Platelets graph we can see that most of the Stage 1, Stage 2, and Stage 3 patients have platelet counts within the normal range.
-- At the same time, however, a large segment of Stage 3 patients are clustered at or around the 150,000 point.
-- As in the Prothrombin graph, we don't see dramatically abnormal test resuls but we do see noticeable differences between patients stages.
+- In the Platelets graph we can see that most of the Stage 1, Stage 2, and Stage 3 patients have platelet counts within the normal range.  
+- At the same time, however, a large segment of Stage 3 patients are clustered at or around the 150,000 point.  
+- As in the Prothrombin graph, we don't see dramatically abnormal test resuls but we do see noticeable differences between patients stages.  
 
 __Albumin, feature importance 0.11__  
 According to the National Kidney Foundation, 3.5 g/dL to 5 g/dL (grams per deciliter) is the normal level of the protein albumin found in blood plasma. The University of Rochester Medical Center explains that the liver makes albumin and that lower levels of this protein in the blood can indicate liver disease. Per the University of California San Francisco Health, lower-than-normal albumin can accompany the presence of ascites, or fluid build up in the abdomen. 
 
 - In the Albumin chart, Stage 1 and Stage 2 patients appear mostly within the normal range.
 - Stage 3 patients are more clustered around the lower end of the normal range and also exhibit a longer left-hand-side "tail" in their distribution. This means Stage 3 patients extend far beyond the lower limits of the normal range.
-- These observations are in line with the medical evidence that albumin levels decrease as liver disease advances.   
+- These observations are in line with the medical evidence that albumin levels decrease as liver disease advances.  
+
+__Number of Days to Study End, feature importance 0.10__   
+*- How to interpret this chart????*  
+
+__Age, feature importance 0.09__   
+- Study patients ranged in age from 25 to 80 years old.  
+- The Stage 1 patients were predominantly in their early 40s to early 60s.
+- The Stage 2 patients were largely in their early 40s to early 60s.
+- The bulk of the Stage 3 patients were between mid 40s and early 60s.
+- Among patients aged mid 60s to early 70s, about half were Stage 3.
+- This suggests that chronic liver disease can begin at Stage 1 at relatively young ages; it's not a disease one acquires simply by aging.
 
 ![Tableau Top 5 Random Forest Features](https://github.com/amydohlin/project-4-group-2/assets/151464511/0c4e03ce-8b5f-48c9-b712-fbfadeb8059e)
 
