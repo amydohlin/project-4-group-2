@@ -155,7 +155,7 @@ __Age, feature importance 0.09__
 
 ![Tableau Top 5 Random Forest Features](https://github.com/amydohlin/project-4-group-2/assets/151464511/0c4e03ce-8b5f-48c9-b712-fbfadeb8059e)
 
-Tableau: https://public.tableau.com/app/profile/anna.bitzer/viz/CirrhosisPredictionsNotebook/Top5RandomForestFeatures
+Visit Tableau dashboard to filter by stage: https://public.tableau.com/app/profile/anna.bitzer/viz/CirrhosisPredictionsNotebook/Top5RandomForestFeatures
 
 Create Training Model (Google Colab, incorporate SQL/Spark): Amy, Christine  
 Look at models like random forest, neural networks, etm.  
