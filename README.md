@@ -47,7 +47,35 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 ![08](https://github.com/amydohlin/project-4-group-2/assets/151464511/1cab0863-ee66-44b7-bedb-c2d73a561498)
 ![09](https://github.com/amydohlin/project-4-group-2/assets/151464511/f5d97fa4-ef32-4f8c-984a-8bb74325df25)
 
-### __PHASE 3: Data Transformation__    
+### __PHASE 3: SparkSQL Queries__
+- We used SparkSQL to look at different aspects of the data to get an idea of how different symptoms, genders, and drugs impacted the stages of liver disease.
+- We initiated a Spark session in the ETL notebook and created a temporary view called “Stages”. In this step we also did a quick conversion of 'Age' from unix to years.
+- Overall, we would have benefited from using SparkSQL during the data exploration process (instead of after we had built and optimized our models). The information we learned about the bodily elements could have helped us whittle down the number of columns needed for machine learning and possibly have given us different results. This will be an important lesson in future projects.
+- Information gleaned from Spark queries:
+  - The number of patients that were on the placebo was higher in each stage of liver disease, whereas the number of patients on D-Penicillamine was lower for each stage.
+    ![alt text](ScreenShots/sql_01.png)
+  - The number of side effects (ascites, hepatomegaly, spiders, edema) present was greater in stage 3 patients than in stage 1 or 2 patients.
+    ![alt text](ScreenShots/sql_02.png)
+  - Stage 1 liver cirrhosis had the largest average of days, whereas stage 3 had the lowest average.
+    ![alt text](ScreenShots/sql_03.png)
+  - The majority of patients in general were female.
+    ![alt text](ScreenShots/sql_04.png)
+  - The average age of patients with stage 1 cirrhosis was 49.9 years old, stage 2 had an average age of 49.1, and stage 3 had an average age of 52.4.
+    ![alt text](ScreenShots/sql_05.png)
+  - Bodily element measurements:
+    - Normal ranges (found through various Google queries):
+      ![alt text](ScreenShots/sql_ranges.png)
+    - Found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
+    - All groups were found to have elevated levels of bilirubin, cholesterol, alk-phos, and SGOT, which are indicators of the liver functioning improperly and a likely diagnosis of liver cirrhosis.
+    - Almost all groups had normal values for albumin, copper, triglycerides, platelets, and prothrombin.
+    - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
+      ![alt text](ScreenShots/sql_06.png)
+      ![alt text](ScreenShots/sql_07.png)
+      ![alt text](ScreenShots/sql_08.png)
+      ![alt text](ScreenShots/sql_09.png)
+
+
+### __PHASE 4: Data Transformation__    
 - We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
 - We generated a list of six categorial variables (.dtypes == "object") in order to run a single instance of OneHoteEncoder.
 - We created a dataframe of the encoded columns and their values, which all became 0.0 or 1.0. The number of features in the dataframe was now 27 at this point. 
@@ -56,7 +84,7 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 - To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and y.
 - Next, we used the StandardScalar method to scale the X_train and X_test data.
 
-### __PHASE 4: Neural Network Models__   
+### __PHASE 5: Neural Network Models__   
 **Neural Network Model #1**
 - For the first iteration of the neural network model, we set the number of input features to be equal to the shape of the scaled X_train dataset.  
 - After defining a keras.Sequential() model, we added a first hidden layer with 8 nodes and a second hidden layer with 5 nodes. For the output layer we set the activation to 'sigmoid.' Hidden Layers 1 and 2 were activated with "relu".
@@ -71,7 +99,7 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 - The two new hidden layers also had activations of "relu".
 - This model version produced an accuracy score of 46.6%.
 
-###__PHASE 5: Model Optimization__  
+### __PHASE 5: Model Optimization__  
 - As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide    
 a) which activation function to use  
 b) the number of neurons in the first layer  
@@ -90,7 +118,22 @@ c) the number of hidden layers and neurons in the layers
 - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
 ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
-###__PHASE 6: Random Forest Models__   
+
+- Another optimization that we tried was a Principal Component Analysis model.
+- We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
+- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.
+  ![alt text]()
+  
+- Next we employed the elbow method on the PCA model where we used a for loop to calculate sets of k-values and inertia values. Once that was complete we created a plot to show the elbow curve, where it was determined that the best k-value to use would be 4.
+- We calculated the predictions with n_clusters = 4 and random_state = 0, and created a scatter plot with the results. Three distinct clusters can be seen, with a fourth cluster that is interspersed between all of them.
+  ![alt text]()
+  
+- Since the fourth cluster was so dispersed, we decided to run the PCA model again with n_clusters = 3 and random_state = 0. This yielded three very distinct clusters and could be considered a better result than four clusters.
+  ![alt text]()
+
+- Overall, a PCA model was not a good choice for this dataset. PCA assumes a linear relationship between variables, and our dataset did not have linear relationships. Another reason is that PCA results are more difficult to read, especially in this case where the target variables are removed prior to applying the PCA calculation and scaling the data. PCA attempts to determine the most important variables and breaks them down into a specified number of PCA-components (we used 3). The main difficulty with this is that the components do not specify which variables the model chose or what weights they hold. If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
+
+### __PHASE 6: Random Forest Models__   
 We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
 
 - As the process of reading the cvs file into the dataframe created a new index identical to the the Unnamed column, we dropped the latter and the 'Stage' feature from our definition of X.
