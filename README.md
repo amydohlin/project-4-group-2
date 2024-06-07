@@ -139,7 +139,11 @@ According to the National Kidney Foundation, 3.5 g/dL to 5 g/dL (grams per decil
 - These observations are in line with the medical evidence that albumin levels decrease as liver disease advances.  
 
 __Number of Days to Study End, feature importance 0.10__   
-*- How to interpret this chart????*  
+- The study end was marked by whichever came first of death, transplantation, or study analysis time.
+- Stage 3 patients trended towards lower number of days in the study.
+- Stage 2 patients clustered towards the middle of number of days in the study.
+- Stage 1 patients were relatively evenly distributed across the range of days.
+- These results suggest that the later the stage of cirrhosis, the more likely that patients would end the study early - perhaps due to death or transplantation.
 
 __Age, feature importance 0.09__   
 - Study patients ranged in age from 25 to 80 years old.  
