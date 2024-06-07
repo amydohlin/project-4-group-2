@@ -181,5 +181,5 @@ Presentation: Anna
 * Softmax  
 
 ### References & Acknowledgements:
-* We would like to thank our instructor, Hunter Hollis and teaching assistant Randy for their guidance throughout this project.
+* We would like to thank our instructor Hunter Hollis, teaching assistant Randy Sendek and Sam Espe for their guidance throughout this project.
 * Model optimization for multi-category output: https://stackoverflow.com/questions/61550026/valueerror-shapes-none-1-and-none-3-are-incompatible
