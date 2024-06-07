@@ -114,7 +114,6 @@ We decided to try using a Random Forest Model on the data because they are robus
 ![05](https://github.com/amydohlin/project-4-group-2/assets/151464511/cd661e6b-d6d3-45d0-9b83-9d8004675f46)
 
 With the classification results of the Random Forest Model we plotted a series of bar charts  in Tableau to visualize the importance of various features on the determindation of 'Stage'. 
-Tableau: https://public.tableau.com/app/profile/anna.bitzer/viz/CirrhosisPredictionsNotebook/Top5RandomForestFeatures
 
 __Prothrombin, feature importance 0.13__  
 According to the Mayo Clinic, the protein Prothrombin is one of many factors in the blood that help it to clot. Prothrombin time is the number of seconds it takes for a patient's blood to clot. The Prothrombin time test is one of many tests used to check people for liver disease and to screen people waiting for liver transplants. Blood normally clots in 10 to 13 seconds. Liver damage is one cause of blood clotting slower than average.   
@@ -156,7 +155,7 @@ __Age, feature importance 0.09__
 
 ![Tableau Top 5 Random Forest Features](https://github.com/amydohlin/project-4-group-2/assets/151464511/0c4e03ce-8b5f-48c9-b712-fbfadeb8059e)
 
-
+Tableau: https://public.tableau.com/app/profile/anna.bitzer/viz/CirrhosisPredictionsNotebook/Top5RandomForestFeatures
 
 Create Training Model (Google Colab, incorporate SQL/Spark): Amy, Christine  
 Look at models like random forest, neural networks, etm.  
