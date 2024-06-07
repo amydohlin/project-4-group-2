@@ -2,14 +2,14 @@
 Final bootcamp project analyzing liver cirrhosis data and using machine learning to predict cirrhosis stages.  
 Members: Amy Dohlin, Anna Bitzer, Tianyue Li, Christine Jauregui
 
-Topic: Liver Cirrhosis Stage Prediction  
-Dataset: Liver Cirrhosis Stage Classification 🩺 (kaggle.com) (25,000+ rows)  
+### Topic: Liver Cirrhosis Stage Prediction  
+### Dataset: Liver Cirrhosis Stage Classification 🩺 (kaggle.com) (25,000+ rows)  
 Goal: Create, train and deploy a neural network machine learning model that can predict liver cirrhosis stage based on patient lab result data.   
 
-What is Liver Cirrhosis?  
+### What is Liver Cirrhosis?  
 Cirrhosis results from prolonged liver damage, leading to extensive scarring, often due to conditions like hepatitis or chronic alcohol consumption. The data provided is sourced from a Mayo Clinic study on primary biliary cirrhosis (PBC) of the liver carried out from 1974 to 1984.  
 
-Attribute Information:    
+### Attribute Information:    
 N_Days: Number of days between registration and the earlier of death, transplantation, or study analysis time in 1986  
 Status: status of the patient C (censored), CL (censored due to liver tx), or D (death)  
 Drug: type of drug D-penicillamine or placebo  
@@ -30,7 +30,7 @@ Platelets: platelets per cubic [ml/1000]
 Prothrombin: prothrombin time in seconds [s]  
 Stage: histologic stage of disease ( 1, 2, or 3 )  
 
-__PHASE I: Data Cleaning__  
+### __PHASE I: Data Cleaning__  
 - With a JupyterNotebook in VSCode, we read in the liver_cirhosis.cvs file into a dataframe. 
 - Next we checked for null values in the liver_cirhosis.csv file and removed any rows with null values.  
 - We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.  
@@ -38,7 +38,7 @@ __PHASE I: Data Cleaning__
 - After removing duplicate records, the file dropped from 25,000 to 10,000 rows.   
 -  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
 
-__PHASE 2: Preliminary Visualizations__   
+### __PHASE 2: Preliminary Visualizations__   
 - Using a Jupyter Notebook and MatplotLib, we created overviews and summary statistics of the data in liver_clean.csv.  
 
 - We also identified outliers in the data in order to drop outlying rows from the dataframe before modeling the data.
@@ -47,7 +47,7 @@ __PHASE 2: Preliminary Visualizations__
 ![08](https://github.com/amydohlin/project-4-group-2/assets/151464511/1cab0863-ee66-44b7-bedb-c2d73a561498)
 ![09](https://github.com/amydohlin/project-4-group-2/assets/151464511/f5d97fa4-ef32-4f8c-984a-8bb74325df25)
 
-__PHASE 3: Data Transformation__    
+### __PHASE 3: Data Transformation__    
 - We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
 - We generated a list of six categorial variables (.dtypes == "object") in order to run a single instance of OneHoteEncoder.
 - We created a dataframe of the encoded columns and their values, which all became 0.0 or 1.0. The number of features in the dataframe was now 27 at this point. 
@@ -56,22 +56,22 @@ __PHASE 3: Data Transformation__
 - To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and y.
 - Next, we used the StandardScalar method to scale the X_train and X_test data.
 
-__PHASE 4: Neural Network Models__   
-Neural Network Model #1  
+### __PHASE 4: Neural Network Models__   
+**Neural Network Model #1**
 - For the first iteration of the neural network model, we set the number of input features to be equal to the shape of the scaled X_train dataset.  
 - After defining a keras.Sequential() model, we added a first hidden layer with 8 nodes and a second hidden layer with 5 nodes. For the output layer we set the activation to 'sigmoid.' Hidden Layers 1 and 2 were activated with "relu".
 - After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 32.6%.  
 
-Neural Network Model #2  
+**Neural Network Model #2**
 - For the second iteration of the neural network model, we doubled the nodes in the hidden layers to 16 and 10, respectively. All other layer characteristics remained the same as before.
 - This version of the model returned an accuracy score of 46.3% after 100 epochs.  
   
-Neural Network Model #3  
+**Neural Network Model #3**  
 - The third iteration of the model was similar to the previous iteration, but two additional hidden layers with 12 nodes each were included.
 - The two new hidden layers also had activations of "relu".
 - This model version produced an accuracy score of 46.6%.
 
-__PHASE 5: Model Optimization__  
+###__PHASE 5: Model Optimization__  
 - As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide    
 a) which activation function to use  
 b) the number of neurons in the first layer  
@@ -90,7 +90,7 @@ c) the number of hidden layers and neurons in the layers
 - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
 ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
-__PHASE 6: Random Forest Models__   
+###__PHASE 6: Random Forest Models__   
 We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
 
 - As the process of reading the cvs file into the dataframe created a new index identical to the the Unnamed column, we dropped the latter and the 'Stage' feature from our definition of X.
@@ -173,7 +173,7 @@ Highlight the findings of our neural network
 ReadMe: Group  
 Presentation: Anna	  
 
-Techniques/Skills to Use:   
+### Techniques/Skills to Use:   
 Pandas  
 Tableau  
 Matplotlib  
@@ -181,5 +181,5 @@ SQL / Spark
 Softmax  
 Data Bricks?  
 
-References:
+### References:
 * https://stackoverflow.com/questions/61550026/valueerror-shapes-none-1-and-none-3-are-incompatible
