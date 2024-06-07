@@ -77,6 +77,10 @@ a) which activation function to use
 b) the number of neurons in the first layer  
 c) the number of hidden layers and neurons in the layers  
 
+![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
+
+
+
 *-----Include things about results of KerasTuner ------*
 - In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
 - The confusion matrix ...
