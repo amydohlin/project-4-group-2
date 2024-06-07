@@ -182,4 +182,4 @@ Softmax
 Data Bricks?  
 
 References:
-https://stackoverflow.com/questions/61550026/valueerror-shapes-none-1-and-none-3-are-incompatible
+* https://stackoverflow.com/questions/61550026/valueerror-shapes-none-1-and-none-3-are-incompatible
