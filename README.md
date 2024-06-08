@@ -51,36 +51,37 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 - We used SparkSQL to look at different aspects of the data to get an idea of how different symptoms, genders, and drugs impacted the stages of liver disease.
 - We initiated a Spark session in the ETL notebook and created a temporary view called “Stages”. In this step we also did a quick conversion of 'Age' from unix to years.
 - Overall, we would have benefited from using SparkSQL during the data exploration process (instead of after we had built and optimized our models). The information we learned about the bodily elements could have helped us whittle down the number of columns needed for machine learning and possibly have given us different results. This will be an important lesson in future projects.
-- Information gleaned from Spark queries:
-  - The number of patients that were on the placebo was higher in each stage of liver disease, whereas the number of patients on D-Penicillamine was lower for each stage.
+
+Information gleaned from Spark queries:
+- The number of patients that were on the placebo was higher in each stage of liver disease, whereas the number of patients on D-Penicillamine was lower for each stage.
 
 ![alt text](ScreenShots/sql_01.png)
     
-  - The number of side effects (ascites, hepatomegaly, spiders, edema) present was greater in stage 3 patients than in stage 1 or 2 patients.
+- The number of side effects (ascites, hepatomegaly, spiders, edema) present was greater in stage 3 patients than in stage 1 or 2 patients.
     
 ![alt text](ScreenShots/sql_02.png)
   
-  - Stage 1 liver cirrhosis had the largest average of days, whereas stage 3 had the lowest average.
+- Stage 1 liver cirrhosis had the largest average of days, whereas stage 3 had the lowest average.
     
  ![alt text](ScreenShots/sql_03.png)
     
-  - The majority of patients in general were female.
+- The majority of patients in general were female.
     
  ![alt text](ScreenShots/sql_04.png)
     
-  - The average age of patients with stage 1 cirrhosis was 49.9 years old, stage 2 had an average age of 49.1, and stage 3 had an average age of 52.4.
+- The average age of patients with stage 1 cirrhosis was 49.9 years old, stage 2 had an average age of 49.1, and stage 3 had an average age of 52.4.
     
  ![alt text](ScreenShots/sql_05.png)
     
-  - Bodily element measurements:
-    - Normal ranges (found through various Google queries):
+- Bodily element measurements:
+  - Normal ranges (found through various Google queries):
       
 ![alt text](ScreenShots/sql_ranges.png)
       
-    - Found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
-    - All groups were found to have elevated levels of bilirubin, cholesterol, alk-phos, and SGOT, which are indicators of the liver functioning improperly and a likely diagnosis of liver cirrhosis.
-    - Almost all groups had normal values for albumin, copper, triglycerides, platelets, and prothrombin.
-    - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
+  - Found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
+  - All groups were found to have elevated levels of bilirubin, cholesterol, alk-phos, and SGOT, which are indicators of the liver functioning improperly and a likely diagnosis of liver cirrhosis.
+  - Almost all groups had normal values for albumin, copper, triglycerides, platelets, and prothrombin.
+  - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
       
  ![alt text](ScreenShots/sql_06.png)
  ![alt text](ScreenShots/sql_07.png)
@@ -140,7 +141,7 @@ c) the number of hidden layers and neurons in the layers
 ![alt text](ScreenShots/pca_elbow.png)
   
 - We calculated the predictions with n_clusters = 4 and random_state = 0, and created a scatter plot with the results. Three distinct clusters can be seen, with a fourth cluster that is interspersed between all of them.
-- 
+
 ![alt text](ScreenShots/pca_4_clusters.png)
   
 - Since the fourth cluster was so dispersed, we decided to run the PCA model again with n_clusters = 3 and random_state = 0. This yielded three very distinct clusters and could be considered a better result than four clusters.
