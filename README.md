@@ -53,26 +53,39 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 - Overall, we would have benefited from using SparkSQL during the data exploration process (instead of after we had built and optimized our models). The information we learned about the bodily elements could have helped us whittle down the number of columns needed for machine learning and possibly have given us different results. This will be an important lesson in future projects.
 - Information gleaned from Spark queries:
   - The number of patients that were on the placebo was higher in each stage of liver disease, whereas the number of patients on D-Penicillamine was lower for each stage.
-    ![alt text](ScreenShots/sql_01.png)
+
+![alt text](ScreenShots/sql_01.png)
+    
   - The number of side effects (ascites, hepatomegaly, spiders, edema) present was greater in stage 3 patients than in stage 1 or 2 patients.
-    ![alt text](ScreenShots/sql_02.png)
+    
+![alt text](ScreenShots/sql_02.png)
+  
   - Stage 1 liver cirrhosis had the largest average of days, whereas stage 3 had the lowest average.
-    ![alt text](ScreenShots/sql_03.png)
+    
+ ![alt text](ScreenShots/sql_03.png)
+    
   - The majority of patients in general were female.
-    ![alt text](ScreenShots/sql_04.png)
+    
+ ![alt text](ScreenShots/sql_04.png)
+    
   - The average age of patients with stage 1 cirrhosis was 49.9 years old, stage 2 had an average age of 49.1, and stage 3 had an average age of 52.4.
-    ![alt text](ScreenShots/sql_05.png)
+    
+ ![alt text](ScreenShots/sql_05.png)
+    
   - Bodily element measurements:
     - Normal ranges (found through various Google queries):
-      ![alt text](ScreenShots/sql_ranges.png)
+      
+![alt text](ScreenShots/sql_ranges.png)
+      
     - Found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
     - All groups were found to have elevated levels of bilirubin, cholesterol, alk-phos, and SGOT, which are indicators of the liver functioning improperly and a likely diagnosis of liver cirrhosis.
     - Almost all groups had normal values for albumin, copper, triglycerides, platelets, and prothrombin.
     - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
-      ![alt text](ScreenShots/sql_06.png)
-      ![alt text](ScreenShots/sql_07.png)
-      ![alt text](ScreenShots/sql_08.png)
-      ![alt text](ScreenShots/sql_09.png)
+      
+ ![alt text](ScreenShots/sql_06.png)
+ ![alt text](ScreenShots/sql_07.png)
+ ![alt text](ScreenShots/sql_08.png)
+ ![alt text](ScreenShots/sql_09.png)
 
 
 ### __PHASE 4: Data Transformation__    
@@ -121,15 +134,18 @@ c) the number of hidden layers and neurons in the layers
 
 - Another optimization that we tried was a Principal Component Analysis model.
 - We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
-- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.
-  ![alt text]()
-  
+- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.  
 - Next we employed the elbow method on the PCA model where we used a for loop to calculate sets of k-values and inertia values. Once that was complete we created a plot to show the elbow curve, where it was determined that the best k-value to use would be 4.
+  
+![alt text](ScreenShots/pca_elbow.png)
+  
 - We calculated the predictions with n_clusters = 4 and random_state = 0, and created a scatter plot with the results. Three distinct clusters can be seen, with a fourth cluster that is interspersed between all of them.
-  ![alt text]()
+- 
+![alt text](ScreenShots/pca_4_clusters.png)
   
 - Since the fourth cluster was so dispersed, we decided to run the PCA model again with n_clusters = 3 and random_state = 0. This yielded three very distinct clusters and could be considered a better result than four clusters.
-  ![alt text]()
+  
+![alt text](ScreenShots/pca_3_clusters.png)
 
 - Overall, a PCA model was not a good choice for this dataset. PCA assumes a linear relationship between variables, and our dataset did not have linear relationships. Another reason is that PCA results are more difficult to read, especially in this case where the target variables are removed prior to applying the PCA calculation and scaling the data. PCA attempts to determine the most important variables and breaks them down into a specified number of PCA-components (we used 3). The main difficulty with this is that the components do not specify which variables the model chose or what weights they hold. If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
 
