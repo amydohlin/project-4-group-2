@@ -129,7 +129,30 @@ Information gleaned from Spark queries:
 **Optimizing the Neural Network model**
 - As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
   - In our evaluation of the dataset to discover additional opportunities to clean and structure our data, we created generated a correlation heatmap to view if there are key players we should narrow our prediction towards
-  - Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction
+
+    *__Can we make a correlation heatmap when Y has three classes?*__
+  - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
+  - The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
+  - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
+  ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
+
+- Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction
+
+
+
+Enhanced Neural Network:
+* Used a neural network model with Relu, sigmoid, softmax. Used training data to reach the above calculated accuracy 92.79%
+* Enhancements:
+  * Used 3 output units
+  * Last layer softmax
+  * 4 total layers
+  * 100 epochs
+* Limitation:
+  * If resources allow, will increase number of epochs to evaluate maximum accuracy
+* Result:Achieved highest 65.0% model accuracy when using testing data
+
+![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
+
 
 **Optimization with KerasTuner**
 - To further enhance our model accuracy, we used KerasTuner to decide:    
@@ -139,24 +162,31 @@ c) the number of hidden layers and neurons in the layers
 in order to optimize for accuracy.
 d) the numbers of epochs allowed
 
-![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
-
 - While using keras tuner auto-tunning method, we incorporated the following strategies to ensure highest accuracy:
 * Extended hidden layers’ activations to a wider selection: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential
 * Once discovering allowing only 1 output value when our target variable contains 3 output values significantly restricts our model, we adjusted our output units to accomodate the data structure
 * We expanded the selection of our activation functions in order to allow the maximum flexibility to fit our model, and incorporated a specific activation "Softmax" for our final output layer to accommodate our target's 3 outputs 
 
-  *__Can we make a correlation heatmap when Y has three classes?*__
-- The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
-- The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
-- We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
-![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
+Keras Tuner Optimized model:
+* Used keras tuner to automatically locate the most optimal hyperparameters
+* Enhancements:
+  * Used 3 output units
+  * Last layer softmax
+  * 100 epochs
+  * Allowed different activations for input layer and hidden layers
+Added additional activations, ex.“Leaky_relu”
+* Limitation:
+  * If resources allow, will increase number of epochs to evaluate maximum accuracy
+* Result:Achieved highest 56.4% model accuracy when using testing data
 
-Enhanced Neural Network:
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
 
 
+![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
+
+
 After optimization:
+
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/8d1cd18f-82bb-46ff-9747-4a852a297585)
 
 
@@ -272,9 +302,11 @@ Presentation: Anna
 * Tableau  
 * Matplotlib  
 * SQL / Spark  
-* Softmax  
+* Machine Learning
+  * Random Forrest
+  * Tensorflow
 
 ### References & Acknowledgements:
-* We would like to thank our instructor Hunter Hollis, teaching assistant Randy Sendek and Sam Espe for their guidance throughout this project.
+* We would like to thank our instructor Hunter Hollis, teaching assistant Randy Sendek and Sam Espe for their guidance throughout this project. They helped us further optimize our model by identifying the dataset output requirement and made recommendations on suitable  activation functions
 * Model optimization for multi-category output: https://stackoverflow.com/questions/61550026/valueerror-shapes-none-1-and-none-3-are-incompatible
 * Seaborn documentation: https://seaborn.pydata.org/generated/seaborn.heatmap.html
