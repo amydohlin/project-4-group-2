@@ -138,7 +138,7 @@ Information gleaned from Spark queries:
 
 - Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction. Upon further analysis, no additional factors were removed
   
-![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
+    ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 Enhanced Neural Network:
 * Used a neural network model with Relu, sigmoid, softmax. Used training data to reach the above calculated accuracy 92.79%
