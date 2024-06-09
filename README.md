@@ -136,7 +136,9 @@ Information gleaned from Spark queries:
   - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
   ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
-- Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction
+- Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction. Upon further analysis, no additional factors were removed
+  
+![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 Enhanced Neural Network:
 * Used a neural network model with Relu, sigmoid, softmax. Used training data to reach the above calculated accuracy 92.79%
@@ -178,9 +180,6 @@ Added additional activations, ex.“Leaky_relu”
 * Result:Achieved highest 56.4% model accuracy when using testing data
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
-
-
-![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 
 After optimization:
