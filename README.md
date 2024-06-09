@@ -123,6 +123,8 @@ Information gleaned from Spark queries:
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
 ### __PHASE 5: Neural Network Model Optimization__  
+
+**Optimizing for Accuracy with KerasTuner**
 - As none of the first three iterations of our neural network achieved high accuracy scores, we used KerasTuner to decide    
 a) which activation function to use  
 b) the number of neurons in the first layer  
@@ -135,8 +137,8 @@ in order to optimize for accuracy.
 
 *-----Include things about results of KerasTuner ------*
 
-
-- In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. *__Are these from the Random Forest or the Optimized NN model?*__  
+*__Are these from the Random Forest or the Optimized NN model?*__  
+- In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
 - The confusion matrix ...
 - 
 - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
@@ -144,7 +146,7 @@ in order to optimize for accuracy.
 - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
 ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
-
+**Optimizing with Principal Component Analysis**
 - Another optimization that we tried was a Principal Component Analysis model.
 - We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
 - In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.  
