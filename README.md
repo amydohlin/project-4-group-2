@@ -125,10 +125,32 @@ Information gleaned from Spark queries:
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
 ### __PHASE 5: Neural Network Model Optimization__  
+- As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
+  
+**Optimizing with Principal Component Analysis**
+- Another optimization that we tried was a Principal Component Analysis model.
+- We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
+- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.  
+- Next we employed the elbow method on the PCA model where we used a for loop to calculate sets of k-values and inertia values. Once that was complete we created a plot to show the elbow curve, where it was determined that the best k-value to use would be 4.
+  
+![alt text](ScreenShots/pca_elbow.png)
+  
+- We calculated the predictions with n_clusters = 4 and random_state = 0, and created a scatter plot with the results. Three distinct clusters can be seen, with a fourth cluster that is interspersed between all of them.
+
+![alt text](ScreenShots/pca_4_clusters.png)
+  
+- Since the fourth cluster was so dispersed, we decided to run the PCA model again with n_clusters = 3 and random_state = 0. This yielded three very distinct clusters and could be considered a better result than four clusters.
+  
+![alt text](ScreenShots/pca_3_clusters.png)
+
+- Overall, a PCA model was not a good choice for this dataset. PCA assumes a linear relationship between variables, and our dataset did not have linear relationships. Another reason is that PCA results are more difficult to read, especially in this case where the target variables are removed prior to applying the PCA calculation and scaling the data.
+- PCA attempts to determine the most important variables and breaks them down into a specified number of PCA-components (we used 3). The main difficulty with this is that the components do not specify which variables the model chose or what weights they hold.
+- If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
 
 **Optimizing the Neural Network model**
-- As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
-  - In our evaluation of the dataset to discover additional opportunities to clean and structure our data, we created generated a correlation heatmap to view if there are key players we should narrow our prediction towards
+- Following PCA, we continued our efforts to increase our model accuracy by evaluating neural network model and Keras tunner optimization
+  
+  - To start of, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on
 
       *__Can we make a correlation heatmap when Y has three classes?*__
     - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
@@ -140,13 +162,13 @@ Information gleaned from Spark queries:
   
     ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
-Enhanced Neural Network:
+Enhanced Neural Network Model:
 * Used a neural network model with Relu, sigmoid, softmax. Used training data to reach the above calculated accuracy 92.79%
 * Enhancements:
-  * Used 3 output units
-  * Last layer softmax
-  * 4 total layers
-  * 100 epochs
+  * Used 3 output units in the output layer
+  * Added softmax activation function to the output layer
+  * Increased total layers to 4
+  * Used 100 total epochs
 * Limitation:
   * If resources allow, will increase number of epochs to evaluate maximum accuracy
 * Result:Achieved highest 65.0% model accuracy when using testing data
@@ -169,39 +191,21 @@ d) the numbers of epochs allowed
 
 Keras Tuner Optimized model:
 * Enhancements:
-  * Used 3 output units
-  * Last layer softmax
-  * 100 epochs
   * Allowed different activations for input layer and hidden layers
-Added additional activations, ex.“Leaky_relu”
+  * Extended the list of activation options to: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential. The additional activation, Leaky_relu was later identified as part of the optimal model design
+  * Used 3 output units in the output layer
+  * Added softmax activation function to the output layer
+  * Increased total layers to 4
+  * Used 100 total epochs
+
 * Limitation:
   * If resources allow, will increase number of epochs to evaluate maximum accuracy
-* Result:Achieved highest 56.4% model accuracy when using testing data
+* Result: Achieved highest 56.4% model accuracy when using testing data
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/8d1cd18f-82bb-46ff-9747-4a852a297585)
 
-We learned neural network requires a significant amount of effort to optimize to better fit our dataset, and it still may not be the most suitable model in comparison to other models. Thus we proceeded with the other model we had in mind - Random forest model!
-[image](https://github.com/amydohlin/project-4-group-2/assets/42381263/1fe48a4b-edfd-4bf3-8388-36bb414cfa82)
+In concolusion: We learned neural network requires a significant amount of effort to optimize to better fit our dataset, and it still may not be the most suitable model in comparison to other models. Thus we proceeded with the other model we had in mind - Random forest model
 
-**Optimizing with Principal Component Analysis**
-- Another optimization that we tried was a Principal Component Analysis model.
-- We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
-- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.  
-- Next we employed the elbow method on the PCA model where we used a for loop to calculate sets of k-values and inertia values. Once that was complete we created a plot to show the elbow curve, where it was determined that the best k-value to use would be 4.
-  
-![alt text](ScreenShots/pca_elbow.png)
-  
-- We calculated the predictions with n_clusters = 4 and random_state = 0, and created a scatter plot with the results. Three distinct clusters can be seen, with a fourth cluster that is interspersed between all of them.
-
-![alt text](ScreenShots/pca_4_clusters.png)
-  
-- Since the fourth cluster was so dispersed, we decided to run the PCA model again with n_clusters = 3 and random_state = 0. This yielded three very distinct clusters and could be considered a better result than four clusters.
-  
-![alt text](ScreenShots/pca_3_clusters.png)
-
-- Overall, a PCA model was not a good choice for this dataset. PCA assumes a linear relationship between variables, and our dataset did not have linear relationships. Another reason is that PCA results are more difficult to read, especially in this case where the target variables are removed prior to applying the PCA calculation and scaling the data.
-- PCA attempts to determine the most important variables and breaks them down into a specified number of PCA-components (we used 3). The main difficulty with this is that the components do not specify which variables the model chose or what weights they hold.
-- If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
 
 ### __PHASE 6: Random Forest Models__   
 We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
