@@ -162,7 +162,9 @@ in order to optimize for accuracy.
   
 ![alt text](ScreenShots/pca_3_clusters.png)
 
-- Overall, a PCA model was not a good choice for this dataset. PCA assumes a linear relationship between variables, and our dataset did not have linear relationships. Another reason is that PCA results are more difficult to read, especially in this case where the target variables are removed prior to applying the PCA calculation and scaling the data. PCA attempts to determine the most important variables and breaks them down into a specified number of PCA-components (we used 3). The main difficulty with this is that the components do not specify which variables the model chose or what weights they hold. If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
+- Overall, a PCA model was not a good choice for this dataset. PCA assumes a linear relationship between variables, and our dataset did not have linear relationships. Another reason is that PCA results are more difficult to read, especially in this case where the target variables are removed prior to applying the PCA calculation and scaling the data.
+- PCA attempts to determine the most important variables and breaks them down into a specified number of PCA-components (we used 3). The main difficulty with this is that the components do not specify which variables the model chose or what weights they hold.
+- If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
 
 ### __PHASE 6: Random Forest Models__   
 We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
