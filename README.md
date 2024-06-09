@@ -108,17 +108,18 @@ Information gleaned from Spark queries:
 - We compiled the model with loss set to binary crossentropy, required given the number of target variable classes was above 2.
 - After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.9%.
 - This score was considerably lower than the accuracy scores returned during the training epochs, which reached as high as %70.0.
-- We interpreted this to mean that the model was overfitting the training data, and underfitting the testing data.
+- We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was very likely overfitting. 
 
 **Neural Network Model #2**
 - For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 54.
 - All other model chacteristics remained the same as in the previous version.
-- This version of the model returned an accuracy score of 46.3% after 100 epochs.    
+- This version of the model returned an accuracy score of 65.0% after 100 epochs.
+- Again, the accuracy scores for the training epochs (reaching 92.8%) were much higher than that for the test. The model was continuing to overfit. 
   
 **Neural Network Model #3**  
-- The third iteration of the model was similar to the previous iteration, but two additional hidden layers with 12 nodes each were included.
-- The two new hidden layers also had activations of "relu".
-- This model version produced an accuracy score of 46.6%.
+- The third iteration of the model was similar to the previous iteration, but two additional hidden layers with 54 nodes each and relu activation were included in this attempt.
+- This model version produced an accuracy score of 63.4%.
+- The training epochs returned accuracy scores as high as 97.0%.
 
 ### __PHASE 5: Model Optimization__  
 - As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide    
