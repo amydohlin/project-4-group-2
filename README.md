@@ -117,7 +117,7 @@ Information gleaned from Spark queries:
 - All other model chacteristics remained the same as in the previous version.  
 - This version of the model returned an accuracy score of 65.0% after 100 epochs.  
 - Again, the accuracy scores for the training epochs (reaching 92.8%) were much higher than that for the test. The model was continuing to overfit. 
-  
+
 **Neural Network Model #3**  
 - The third iteration of the model was similar to the previous iteration, but two additional hidden layers with 54 nodes each and relu activation were included in this attempt.
 - This model version produced an accuracy score of 63.4%, lower than the previous iteration.  
@@ -126,22 +126,25 @@ Information gleaned from Spark queries:
 
 ### __PHASE 5: Neural Network Model Optimization__  
 
-**Optimizing for Accuracy with KerasTuner**
-- As none of the first three iterations of our neural network achieved high accuracy scores, we used KerasTuner to decide    
+**Optimizing the Neural Network model**
+- As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
+  - In our evaluation of the dataset to discover additional opportunities to clean and structure our data, we created generated a correlation heatmap to view if there are key players we should narrow our prediction towards
+  - Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction
+
+**Optimization with KerasTuner**
+- To further enhance our model accuracy, we used KerasTuner to decide:    
 a) which activation function to use  
 b) the number of neurons in the first layer  
 c) the number of hidden layers and neurons in the layers
-in order to optimize for accuracy.  
+in order to optimize for accuracy.
+d) the numbers of epochs allowed
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
-
-
-*-----Include things about results of KerasTuner ------*
-
-*__Are these from the Random Forest or the Optimized NN model?*__  
-- In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
-- The confusion matrix ...
+- While using keras tuner auto-tunning method, we incorporated the following strategies to ensure highest accuracy:
+* Extended hidden layers’ activations to a wider selection: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential
+* Once discovering allowing only 1 output value when our target variable contains 3 output values significantly restricts our model, we adjusted our output units to accomodate the data structure
+* We expanded the selection of our activation functions in order to allow the maximum flexibility to fit our model, and incorporated a specific activation "Softmax" for our final output layer to accommodate our target's 3 outputs 
 
   *__Can we make a correlation heatmap when Y has three classes?*__
 - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
