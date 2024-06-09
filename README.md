@@ -160,13 +160,13 @@ c) the number of hidden layers and neurons in the layers
 in order to optimize for accuracy.
 d) the numbers of epochs allowed
 
+- We used keras tuner to automatically locate the most optimal hyperparameters
 - While using keras tuner auto-tunning method, we incorporated the following strategies to ensure highest accuracy:
 * Extended hidden layers’ activations to a wider selection: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential
 * Once discovering allowing only 1 output value when our target variable contains 3 output values significantly restricts our model, we adjusted our output units to accomodate the data structure
 * We expanded the selection of our activation functions in order to allow the maximum flexibility to fit our model, and incorporated a specific activation "Softmax" for our final output layer to accommodate our target's 3 outputs 
 
 Keras Tuner Optimized model:
-* Used keras tuner to automatically locate the most optimal hyperparameters
 * Enhancements:
   * Used 3 output units
   * Last layer softmax
