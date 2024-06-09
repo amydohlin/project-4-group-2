@@ -78,7 +78,7 @@ Information gleaned from Spark queries:
       
 ![alt text](ScreenShots/sql_ranges.png)
       
-  - Found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
+  - We found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
   - All groups were found to have elevated levels of bilirubin, cholesterol, alk-phos, and SGOT, which are indicators of the liver functioning improperly and a likely diagnosis of liver cirrhosis.
   - Almost all groups had normal values for albumin, copper, triglycerides, platelets, and prothrombin.
   - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
@@ -90,13 +90,14 @@ Information gleaned from Spark queries:
 
 
 ### __PHASE 4: Data Transformation__    
-- We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe.
-- We generated a list of six categorial variables (.dtypes == "object") in order to run a single instance of OneHoteEncoder.
-- We created a dataframe of the encoded columns and their values, which all became 0.0 or 1.0. The number of features in the dataframe was now 27 at this point. 
-- We defined y as the values in the 'Stage' columns, whose values are all 1, 2, or 3.
-- We defined X as the values in all other columns of the dataframe (except 'Stage').
-- To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and y.
-- Next, we used the StandardScalar method to scale the X_train and X_test data.
+- We read the liver_clean csv into a Google Colab notebook, where we saved the data into a Pandas dataframe, liver_clean_df.
+- We defined a list of eight categorial variables on which to run a single instance of OneHoteEncoder.
+- We created a dataframe of the encoded variables and their values, which all became 0.0 or 1.0.
+- We concatenated the encoded variables dataframe with the liver_clean_df and dropped the original columns that we had to encode. 
+- We defined Y as the values in the encoded 'Stages' feature, Stage_1, Stage_2, and Stage_3. This created a target variable with three classes. Y=liver_clean_df[["Stage_1", "Stage_2","Stage_3"]]  
+- We defined X as the values in all other columns of the dataframe (except the three Stage features. X=liver_clean_df.drop(["Stage_1", "Stage_2", "Stage_3"],axis=1) This left the X data with 27 features. 
+- To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and Y.
+- Next, we used the StandardScalar method to scale the X_train and X_test data, which we saved as X_train_scaled and X_test_scaled.
 
 ### __PHASE 5: Neural Network Models__   
 **Neural Network Model #1**
