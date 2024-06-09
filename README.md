@@ -171,9 +171,9 @@ in order to optimize for accuracy.
 ### __PHASE 6: Random Forest Models__   
 We decided to try using a Random Forest Model on the data because they are robust against overfitting, robust to outliers and non-linear data, and efficient on large databases.  
 - After reading the processed liver_clean.cvs file into dataframe liver_clean_df, we separated the features from the target variable.
-- RETURN TO THIS PART Because a column called "Unnamed: 0", a new index identical to the the Unnamed column, we dropped the latter and the 'Stage' feature from our definition of X.
-- The y variable remained as 'Stage'. 
-- Next we identified the categorical features in the dataframe by getting the counts of each value.
+- Because a column called "Unnamed: 0", a new index identical to the original index, we dropped the latter and the 'Stage' feature from our definition of X.
+- We specified the y variable as 'Stage'. 
+- Next we identified the categorical features in the dataframe by getting the counts of each features' values.
 - Because Edema had three values, not just Y or N like the other categorical fields, we set Edema aside to later apply the "get dummies" function.
 - For the categorical features with only two values, we replaced the Y values with 0s, the N values with 1s, the D-penicillamine value in Drug with 1s, and the Placebo value in Drug with 0. We set all new values to integer type.
 - We used the "get dummies" function to encode the remaining categorical variables, Status and Edema, and turn their values into integers.
