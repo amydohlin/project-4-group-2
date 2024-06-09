@@ -97,17 +97,23 @@ Information gleaned from Spark queries:
 - We defined Y as the values in the encoded 'Stages' feature, Stage_1, Stage_2, and Stage_3. This created a target variable with three classes. Y=liver_clean_df[["Stage_1", "Stage_2","Stage_3"]]  
 - We defined X as the values in all other columns of the dataframe (except the three Stage features. X=liver_clean_df.drop(["Stage_1", "Stage_2", "Stage_3"],axis=1) This left the X data with 27 features. 
 - To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and Y.
-- Next, we used the StandardScalar method to scale the X_train and X_test data, which we saved as X_train_scaled and X_test_scaled.
+- Next, we used the StandardScalar method to scale the X_train and X_test data, which we saved as NumPy arrays called X_train_scaled and X_test_scaled.
+- Because the Y data was stored as a pandas DataFrame, we used .to_numpy on Y_train and Y_test to convert them to arrays. 
 
 ### __PHASE 5: Neural Network Models__   
 **Neural Network Model #1**
-- For the first iteration of the neural network model, we set the number of input features to be equal to the shape of the scaled X_train dataset.  
-- After defining a keras.Sequential() model, we added a first hidden layer with 8 nodes and a second hidden layer with 5 nodes. For the output layer we set the activation to 'sigmoid.' Hidden Layers 1 and 2 were activated with "relu".
-- After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 32.6%.  
+- For the first iteration of the neural network model, we set the number of input features and number of nodes in the two hidden layers to equal the shape of the X_train_scaled dataset, 27.  
+- For the output layer we set the activation to 'softmasx' and the units to 3, to accommodate the three target variable values. 
+- Hidden Layers 1 and 2 were activated with "relu".
+- We compiled the model with loss set to binary crossentropy, required given the number of target variable classes was above 2.
+- After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.9%.
+- This score was considerably lower than the accuracy scores returned during the training epochs, which reached as high as %70.0.
+- We interpreted this to mean that the model was overfitting the training data, and underfitting the testing data.
 
 **Neural Network Model #2**
-- For the second iteration of the neural network model, we doubled the nodes in the hidden layers to 16 and 10, respectively. All other layer characteristics remained the same as before.
-- This version of the model returned an accuracy score of 46.3% after 100 epochs.  
+- For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 54.
+- All other model chacteristics remained the same as in the previous version.
+- This version of the model returned an accuracy score of 46.3% after 100 epochs.    
   
 **Neural Network Model #3**  
 - The third iteration of the model was similar to the previous iteration, but two additional hidden layers with 12 nodes each were included.
