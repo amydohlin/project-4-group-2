@@ -131,6 +131,7 @@ b) the number of neurons in the first layer
 c) the number of hidden layers and neurons in the layers
 in order to optimize for accuracy.  
 
+*__Is this part of Preliminary Visualizations section?*__  
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 
