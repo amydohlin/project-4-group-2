@@ -149,6 +149,14 @@ in order to optimize for accuracy.
 - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
 ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
+Enhanced Neural Network:
+![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
+
+
+After optimization:
+![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/8d1cd18f-82bb-46ff-9747-4a852a297585)
+
+
 **Optimizing with Principal Component Analysis**
 - Another optimization that we tried was a Principal Component Analysis model.
 - We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
