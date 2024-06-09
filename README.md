@@ -153,7 +153,6 @@ Enhanced Neural Network:
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
 
-
 **Optimization with KerasTuner**
 - To further enhance our model accuracy, we used KerasTuner to decide:    
 a) which activation function to use  
@@ -179,13 +178,10 @@ Added additional activations, ex.“Leaky_relu”
   * If resources allow, will increase number of epochs to evaluate maximum accuracy
 * Result:Achieved highest 56.4% model accuracy when using testing data
 
-![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
-
-
-After optimization:
-
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/8d1cd18f-82bb-46ff-9747-4a852a297585)
 
+We learned neural network requires a significant amount of effort to optimize to better fit our dataset, and it still may not be the most suitable model in comparison to other models. Thus we proceeded with the other model we had in mind - Random forest model!
+[image](https://github.com/amydohlin/project-4-group-2/assets/42381263/1fe48a4b-edfd-4bf3-8388-36bb414cfa82)
 
 **Optimizing with Principal Component Analysis**
 - Another optimization that we tried was a Principal Component Analysis model.
