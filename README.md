@@ -109,7 +109,7 @@ Information gleaned from Spark queries:
 - Hidden Layers 1 and 2 were activated with "relu".
 - We compiled the model with loss set to binary crossentropy, required given the number of target variable classes was above 2.
 - After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.9%.
-- This score was considerably lower than the accuracy scores returned during the training epochs, which reached as high as %70.0.
+- This score was considerably lower than the accuracy scores returned during the training epochs, which reached as high as 70.0%.
 - We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was very likely overfitting. 
 
 **Neural Network Model #2**
@@ -133,7 +133,6 @@ b) the number of neurons in the first layer
 c) the number of hidden layers and neurons in the layers
 in order to optimize for accuracy.  
 
-*__Is this part of Preliminary Visualizations section?*__  
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 
