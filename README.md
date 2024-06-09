@@ -122,18 +122,21 @@ Information gleaned from Spark queries:
 - That training epochs returned accuracy scores as high as 98.0% in 100 epochs, but the score fell to 94.2% by the last epoch.
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
-### __PHASE 5: Model Optimization__  
-- As none of the neural networks achieved high accuracy scores, we used KerasTuner to decide    
+### __PHASE 5: Neural Network Model Optimization__  
+- As none of the first three iterations of our neural network achieved high accuracy scores, we used KerasTuner to decide    
 a) which activation function to use  
 b) the number of neurons in the first layer  
-c) the number of hidden layers and neurons in the layers  
+c) the number of hidden layers and neurons in the layers
+in order to optimize for accuracy.  
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 
 
 *-----Include things about results of KerasTuner ------*
-- In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. 
+
+
+- In our evaluation of the optimized model, we created a confusion matrix and generated a correlation heatmap. *__Are these from the Random Forest or the Optimized NN model?*__  
 - The confusion matrix ...
 - 
 - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
