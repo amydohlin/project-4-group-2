@@ -36,7 +36,8 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 - We also checked the data types for the columns in the dataframe and used the drop.duplicates function to remove any repeated rows.  
 ![07](https://github.com/amydohlin/project-4-group-2/assets/151464511/a7a39afd-cd03-4cb9-b4c1-dc1bf76f783e)  
 - After removing duplicate records, the file dropped from 25,000 to 10,000 rows.   
--  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.   
+-  We wrote the data in this modified dataframe to a csv file, liver_clean.csv.
+-  We also separated the 'Stage' column into three separate columns with boolean values. We then appended the boolean columns to the dataframe and saved it as liver_boolean.csv. We did not use this dataframe during our analysis but we had it just in case.   
 
 ### __PHASE 2: Preliminary Visualizations__   
 - Using a Jupyter Notebook and MatplotLib, we created overviews of the data in liver_clean.csv.
@@ -51,8 +52,8 @@ Stage: histologic stage of disease ( 1, 2, or 3 )
 
 ### __PHASE 3: SparkSQL Queries__
 - We used SparkSQL to look at different aspects of the data to get an idea of how different symptoms, genders, and drugs impacted the stages of liver disease.
-- We initiated a Spark session in the ETL notebook and created a temporary view called “Stages”. In this step we also did a quick conversion of 'Age' from unix to years.
-- Overall, we would have benefited from using SparkSQL during the data exploration process (instead of after we had built and optimized our models). The information we learned about the bodily elements could have helped us whittle down the number of columns needed for machine learning and possibly have given us different results. This will be an important lesson in future projects.
+- We initiated a Spark session in the ETL notebook and created a temporary view called “Stages”. In this step we also did a quick conversion of 'Age' from unix to years by dividing the age value by 365.
+- Overall, we would have benefited from using SparkSQL during the data exploration process (instead of after we had built and optimized our models). The information we learned about the bodily elements could have helped us whittle down the number of columns needed for machine learning and possibly have given us different results. This will be an important lesson for future projects.
 
 Information gleaned from Spark queries:
 - The number of patients that were on the placebo was higher in each stage of liver disease, whereas the number of patients on D-Penicillamine was lower for each stage.
@@ -83,7 +84,7 @@ Information gleaned from Spark queries:
   - We found averages of Bilirubin, Cholesterol, Albumin, Copper, Alkaline-Phosphatase (alk-phos), SGOT, Triglycerides, Platelets, and Prothrombin across four groups in all stages (female patients on placebo, female patients on D-penicillamine, male patients on placebo, male patients on D-penicillamine).
   - All groups were found to have elevated levels of bilirubin, cholesterol, alk-phos, and SGOT, which are indicators of the liver functioning improperly and a likely diagnosis of liver cirrhosis.
   - Almost all groups had normal values for albumin, copper, triglycerides, platelets, and prothrombin.
-  - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
+  - Female patients with stage 3 cirrhosis, both on placebo and D-penicillamine, had below normal amounts of albumin in their system, which is a common indicator of cirrhosis and can cause symptoms such as ascites (fluid/swelling in abdomen) and edema (fluid/swelling in legs).
       
  ![alt text](ScreenShots/sql_06.png)
  ![alt text](ScreenShots/sql_07.png)
@@ -96,8 +97,8 @@ Information gleaned from Spark queries:
 - We defined a list of eight categorial variables on which to run a single instance of OneHoteEncoder.
 - We created a dataframe of the encoded variables and their values, which all became 0.0 or 1.0.
 - We concatenated the encoded variables dataframe with the liver_clean_df and dropped the original columns that we had to encode. 
-- We defined Y as the values in the encoded 'Stages' feature, Stage_1, Stage_2, and Stage_3. This created a target variable with three classes. Y=liver_clean_df[["Stage_1", "Stage_2","Stage_3"]]  
-- We defined X as the values in all other columns of the dataframe (except the three Stage features. X=liver_clean_df.drop(["Stage_1", "Stage_2", "Stage_3"],axis=1) This left the X data with 27 features. 
+- We defined Y as the values in the encoded 'Stages' feature, Stage_1, Stage_2, and Stage_3. This created a target variable with three classes. Y=liver_clean_df[["Stage_1", "Stage_2","Stage_3"]].  
+- We defined X as the values in all other columns of the dataframe (except the three Stage features. X=liver_clean_df.drop(["Stage_1", "Stage_2", "Stage_3"],axis=1). This left the X data with 27 features. 
 - To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and Y.
 - Next, we used the StandardScalar method to scale the X_train and X_test data, which we saved as NumPy arrays called X_train_scaled and X_test_scaled.
 - Because the Y data was stored as a pandas DataFrame, we used .to_numpy on Y_train and Y_test to convert them to arrays.
@@ -138,6 +139,10 @@ Information gleaned from Spark queries:
 - That training epochs returned accuracy scores as high as the mid 90% in 100 epochs.  
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
+
+### __PHASE 5: Neural Network Model Optimization__  
+- As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model.
+=======
 ![Iteration3_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/c4b26a60-397a-4f26-bd6c-5f78b03f4f57)
 
 ![Iteration3](https://github.com/amydohlin/project-4-group-2/assets/151464511/3858b0e2-14d0-40b1-be50-7d8a83973155)
@@ -197,12 +202,13 @@ Information gleaned from Spark queries:
   
 ### __PHASE 5: Model Optimization__  
 - As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
+
   
 **Optimizing with Principal Component Analysis**
-- Another optimization that we tried was a Principal Component Analysis model.
+- An optimization that we tried was a Principal Component Analysis model.
 - We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
-- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.  
-- Next we employed the elbow method on the PCA model where we used a for loop to calculate sets of k-values and inertia values. Once that was complete we created a plot to show the elbow curve, where it was determined that the best k-value to use would be 4.
+- In the next step we found the explained variance and the total explained variance. The largest total variance was 38.4%, which means that a maximum of 38.4% of the original data was retained in the PCA model, and is an indicator that this type of model would not be a good method for this dataset. Despite this, we continued with the PCA model to see what the results would be.  
+- Next we employed the elbow method on the PCA model where we used a for loop to calculate sets of k-values and inertia values. Once the data was compiled we created a plot to show the elbow curve, where it was determined that the best k-value to use would be 4.
   
 ![alt text](ScreenShots/pca_elbow.png)
   
@@ -219,6 +225,15 @@ Information gleaned from Spark queries:
 - If we had done SparkSQL queries earlier in the project, PCA would have possibly been better if we had manually removed unnecessary variables first and then created the model.
 
 **Optimizing the Neural Network model**
+
+- Following PCA, we continued our efforts to increase our model accuracy by evaluating neural network model and Keras tunner optimization.
+- To start off, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on.
+
+      *__Can we make a correlation heatmap when Y has three classes?*__
+- The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
+- The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
+- We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
+=======
 - Following PCA, we continued our efforts to increase our model accuracy by evaluating neural network model and Keras tunner optimization
 
   - To start of, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on.
@@ -228,55 +243,55 @@ Information gleaned from Spark queries:
     - The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
     - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
 
+
   ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
-- Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction. Upon further analysis, no additional factors were removed
+- Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction. Upon further analysis, no additional factors were removed.
 
     ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 **Optimized Neural Network model**
 * Used a neural network model with Relu, sigmoid, softmax. Used training data to reach the above calculated accuracy 92.79%
 * Enhancements:
-  * Used 3 output units in the output layer
-  * Added softmax activation function to the output layer
-  * Increased total layers to 4
-  * Used 100 total epochs
+  * Used 3 output units in the output layer;
+  * Added softmax activation function to the output layer;
+  * Increased total layers to 4;
+  * Used 100 total epochs.
 * Limitation:
-  * If resources allow, will increase number of epochs to evaluate maximum accuracy
-* Result:Achieved highest 65.0% model accuracy when using testing data
+  * If resources allow, will increase number of epochs to evaluate maximum accuracy.
+* Result: Achieved highest 65.0% model accuracy when using testing data.
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/5d8d1570-d793-4936-be1c-33a7a5b6c32f)
 
 **Optimization with KerasTuner**
 - To further enhance our model accuracy, we used KerasTuner to decide:    
-a) which activation function to use  
-b) the number of neurons in the first layer  
-c) the number of hidden layers and neurons in the layers
-in order to optimize for accuracy.
-d) the numbers of epochs allowed
+a) which activation function to use;
+b) the number of neurons in the first layer;
+c) the number of hidden layers and neurons in the layers in order to optimize for accuracy;
+d) the numbers of epochs allowed.
 
-- We used keras tuner to automatically locate the most optimal hyperparameters
+- We used keras tuner to automatically locate the most optimal hyperparameters.
 - While using keras tuner auto-tunning method, we incorporated the following strategies to ensure highest accuracy:
 * Extended hidden layers’ activations to a wider selection: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential
-* Once discovering allowing only 1 output value when our target variable contains 3 output values significantly restricts our model, we adjusted our output units to accomodate the data structure
-* We expanded the selection of our activation functions in order to allow the maximum flexibility to fit our model, and incorporated a specific activation "Softmax" for our final output layer to accommodate our target's 3 outputs 
+* We discovered allowing only 1 output value when our target variable contains 3 output values significantly restricts our model, we adjusted our output units to accomodate the data structure.
+* We expanded the selection of our activation functions in order to allow the maximum flexibility to fit our model, and incorporated a specific activation "Softmax" for our final output layer to accommodate our target's 3 outputs.
 
 Keras Tuner Optimized model:
 * Enhancements:
-  * Allowed different activations for input layer and hidden layers
-  * Extended the list of activation options to: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential. The additional activation, Leaky_relu was later identified as part of the optimal model design
-  * Used 3 output units in the output layer
-  * Added softmax activation function to the output layer
-  * Increased total layers to 4
-  * Used 100 total epochs
+  * Allowed different activations for input layer and hidden layers;
+  * Extended the list of activation options to: Relu, Tanh, Sigmoid, leaky relu, softsign, exponential. The additional activation, Leaky_relu was later identified as part of the optimal model design;
+  * Used 3 output units in the output layer;
+  * Added softmax activation function to the output layer;
+  * Increased total layers to 4;
+  * Used 100 total epochs.
 
 * Limitation:
-  * If resources allow, will increase number of epochs to evaluate maximum accuracy
-* Result: Achieved highest 56.4% model accuracy when using testing data
+  * If resources allow, will increase number of epochs to evaluate maximum accuracy.
+* Result: Achieved highest 56.4% model accuracy when using testing data.
 
 ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/8d1cd18f-82bb-46ff-9747-4a852a297585)
 
-In concolusion: We learned neural network requires a significant amount of effort to optimize to better fit our dataset, and it still may not be the most suitable model in comparison to other models. Thus we proceeded with the other model we had in mind - Random forest model
+In concolusion: We learned neural network requires a significant amount of effort to optimize to better fit our dataset, and it still may not be the most suitable model in comparison to other models. Thus we proceeded with the other model we had in mind - Random forest model.
 
 
 ### __PHASE 6: Random Forest Models__   
@@ -350,28 +365,14 @@ __Age, feature importance 0.09__
 
 Visit Tableau dashboard to filter by stage: https://public.tableau.com/app/profile/anna.bitzer/viz/CirrhosisPredictionsNotebook/Top5RandomForestFeatures
 
-Create Training Model (Google Colab, incorporate SQL/Spark): Amy, Christine  
-Look at models like random forest, neural networks, etm.  
-Categorical vs discrete variable cleaning (one-hot encoding)  
-Drop irrelevant columns, if any  
-Training vs test data  
-Choose various neural network parameters  
-Optimize Model: Tianyue, Anna  
-Use PCA to eliminate less-impactful factors to make our model concise and strong  
-Analyze the model accuracy using confusion matrix and classification report  
-Use tensorflow to optimize the activation function  
-Document changes along the way, and effect on accuracy  
-Resulting Visualizations (Tableau?): Group  
-Highlight the findings of our neural network   
-ReadMe: Group  
-Presentation: Anna	  
 
-### Techniques/Skills to Use:   
+### Techniques/Skills Used:   
 * Pandas  
 * Tableau  
 * Matplotlib  
 * SQL / Spark  
 * Machine Learning
+  * Principal Component Analysis
   * Random Forrest
   * Tensorflow
 
