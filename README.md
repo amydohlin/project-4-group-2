@@ -148,8 +148,7 @@ Information gleaned from Spark queries:
 
 ![Iteration3-](https://github.com/amydohlin/project-4-group-2/assets/151464511/b742e6db-2c2c-474c-8abd-82c9b4e97c47)
 
-![Iteration3--](https://github.com/amydohlin/project-4-group-2/assets/151464511/af4f708e-af8f-4d8d-9537-7e6c65b99644)
-
+![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/5ed8baf9-4497-4f41-8161-b5c7dba10d6c)
 
 **Neural Network Model #4**
 - For the next four model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'.
