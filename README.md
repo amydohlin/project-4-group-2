@@ -112,8 +112,13 @@ Information gleaned from Spark queries:
 - This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range.  
 - We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was likely overfitting.
   
+![Version1_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/9281e605-749f-49d8-90c3-f4a2211c2ffd)
 
+![Version1-](https://github.com/amydohlin/project-4-group-2/assets/151464511/93f7796f-b659-452a-929c-7764a6f52fa1)
 
+![Version1--](https://github.com/amydohlin/project-4-group-2/assets/151464511/c0e02769-283f-489d-b211-2fb4958291b0)
+
+![Version1---](https://github.com/amydohlin/project-4-group-2/assets/151464511/590ab9d1-0483-41f5-af96-a01e010d2518)
 
 **Neural Network Model #2**
 - For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 70 (35 in each layer).  
