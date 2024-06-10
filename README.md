@@ -6,6 +6,10 @@ Members: Amy Dohlin, Anna Bitzer, Tianyue Li, Christine Jauregui
 ### Dataset: Liver Cirrhosis Stage Classification 🩺 (kaggle.com) (25,000+ rows)  
 Goal: Create, train and deploy a neural network machine learning model that can predict liver cirrhosis stage based on patient lab result data.   
 
+### Executive Summary
+Given the amount of categorical data in this dataset, Neural Network models were unsuccessful in achieving high rates of accuracy. Attempts to optimize the Neural Network returned little to no improvement over earlier models, especially given the time invested in making the optimization attempts. Principal Component Analysis with K Means models was also unsuccessful in generating high-performing models. With the challenge of interpreting what copomnents related to which original variables (blood-level measurements of proteins and minerals), the functionality of the K Means with PCA was very limited. Only the Random Forest model was successful in returning high levels of accuracy. This type of model is more appropriate for categorical data.  
+
+
 ### What is Liver Cirrhosis?  
 Cirrhosis results from prolonged liver damage, leading to extensive scarring, often due to conditions like hepatitis or chronic alcohol consumption. The data provided is sourced from a Mayo Clinic study on primary biliary cirrhosis (PBC) of the liver carried out from 1974 to 1984.  
 
