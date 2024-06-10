@@ -143,22 +143,20 @@ Information gleaned from Spark queries:
 - That training epochs returned accuracy scores as high as the mid 90% in 100 epochs.  
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
+![Version3_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/91d5533f-fd84-4d66-a4b1-6b9ca79d97da)
+![Version3](https://github.com/amydohlin/project-4-group-2/assets/151464511/880708f3-d38a-4a3d-b6b9-09bb9f7fe79d)
+![Version3_](https://github.com/amydohlin/project-4-group-2/assets/151464511/a026ffc4-8fd8-4c2a-b263-5086ff7f18d0)
+![Version3__](https://github.com/amydohlin/project-4-group-2/assets/151464511/9ef90df2-bba2-4acd-8ac9-6190a3e3085a)
+![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/66ea1955-c696-4e5c-9f6f-1bea6897a9e3)
 
-### __PHASE 5: Neural Network Model Optimization__  
-- As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model.
+
 =======
-![Iteration3_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/c4b26a60-397a-4f26-bd6c-5f78b03f4f57)
-
-![Iteration3](https://github.com/amydohlin/project-4-group-2/assets/151464511/3858b0e2-14d0-40b1-be50-7d8a83973155)
-
-![Iteration3-](https://github.com/amydohlin/project-4-group-2/assets/151464511/b742e6db-2c2c-474c-8abd-82c9b4e97c47)
-
-![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/5ed8baf9-4497-4f41-8161-b5c7dba10d6c)
-
 
 - For the next three model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'.
 - We kept the activation to 'softmax' and the units to 3, to accommodate the three target variables created from the original "Stage' feature.
 - We coompiled the models with loss to 'sparse_categorical_crossentropy, which is called for when there are OneHotEncoded target variables.
+
+======
 
  **Neural Network Model #4**
 - For the first iteration of this second round of neural network models, we set the number of input features and number of nodes in the two hidden layers to equal the shape of the X_train_scaled dataset, 27.   
