@@ -112,13 +112,7 @@ Information gleaned from Spark queries:
 - This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range.  
 - We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was likely overfitting.
   
-![Iteration1_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/dafc25df-aaad-41ca-abb3-acecac34a1f4)
 
-![Iteration1-](https://github.com/amydohlin/project-4-group-2/assets/151464511/1b209712-d0df-45b9-b83d-48f589997eef)
-
-![Iteration1--](https://github.com/amydohlin/project-4-group-2/assets/151464511/cec4e5a8-2a98-41a3-a99f-a97e8698bf10)
-
-![Iteration1---](https://github.com/amydohlin/project-4-group-2/assets/151464511/03c6613e-da18-4828-bf61-297061fc7af9)
 
 
 **Neural Network Model #2**
@@ -127,13 +121,7 @@ Information gleaned from Spark queries:
 - This version of the model returned an accuracy score of 61.0% after 100 epochs.  
 - Again, the accuracy scores for the training epochs (reaching low 80%) were much higher than that for the test. The model was continuing to overfit. 
 
-![Iteration2_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/1f4c99bd-d8d7-4c30-97b5-97448fe62281)
 
-![Iteration2](https://github.com/amydohlin/project-4-group-2/assets/151464511/af7bcf53-d3b8-4b2c-91c5-03d1af1b3bbd)
-
-![Iterations2-](https://github.com/amydohlin/project-4-group-2/assets/151464511/2558f042-3fb5-4da3-b716-684241a5abf9)
-
-![Iteration2--](https://github.com/amydohlin/project-4-group-2/assets/151464511/dcb7ccd7-b533-4328-ac02-71ab24caba70)
 
 
 **Neural Network Model #3**  
@@ -150,15 +138,25 @@ Information gleaned from Spark queries:
 
 ![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/5ed8baf9-4497-4f41-8161-b5c7dba10d6c)
 
-**Neural Network Model #4**
-- For the next four model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'.
+
+- For the next three model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'.
 - We kept the activation to 'softmax' and the units to 3, to accommodate the three target variables created from the original "Stage' feature.
 - We coompiled the models with loss to 'sparse_categorical_crossentropy, which is called for when there are OneHotEncoded target variables.
-- For the first iteration of this second round of neural network models, we set the number of input features and number of nodes in the two hidden layers to equal the shape of the X_train_scaled dataset, 27.  
-- For the output layer we set the activation to 'softmax' and the units to 3, to accommodate the three classes in our target variables. 
+
+ **Neural Network Model #4**
+- For the first iteration of this second round of neural network models, we set the number of input features and number of nodes in the two hidden layers to equal the shape of the X_train_scaled dataset, 27.   
 - Hidden Layers 1 and 2 were activated with "relu".
 - After fitting, compiling, and training the model in 100 epochs, we noted an accuracy score of 60.74%.
-- This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range, indicative of further overfitting. 
+- This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range, indicative of further overfitting.
+
+![Iteration1_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/dafc25df-aaad-41ca-abb3-acecac34a1f4)
+
+![Iteration1-](https://github.com/amydohlin/project-4-group-2/assets/151464511/1b209712-d0df-45b9-b83d-48f589997eef)
+
+![Iteration1--](https://github.com/amydohlin/project-4-group-2/assets/151464511/cec4e5a8-2a98-41a3-a99f-a97e8698bf10)
+
+![Iteration1---](https://github.com/amydohlin/project-4-group-2/assets/151464511/03c6613e-da18-4828-bf61-297061fc7af9)
+
 
 **Neural Network Model #5**
 - For the second iteration of the 3-target neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 70 (35 in each layer).  
@@ -166,11 +164,28 @@ Information gleaned from Spark queries:
 - This version of the model returned an accuracy score of 62.55% after 100 epochs.  
 - Again, the accuracy scores for the training epochs (reaching l mid0%) were much higher than that for the overall test. 
 
+![Iteration2_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/5c051df0-e7cb-47cd-b78d-d2aa1f4c7393)
+
+![Iteration2](https://github.com/amydohlin/project-4-group-2/assets/151464511/6e16e41b-0552-484b-8c3d-88d4b0d8f957)
+
+![Iterations2-](https://github.com/amydohlin/project-4-group-2/assets/151464511/c57f54fa-d58d-432a-827c-4b34a98ed637)
+
+![Iteration2--](https://github.com/amydohlin/project-4-group-2/assets/151464511/30eaa055-70c3-465e-b2dc-265604b81be8)
+
 **Neural Network Model #6**  
 - The third iteration of the 3-target model was similar to the previous ones, but included an additional hidden layer with 35 nodes. -- Activation was set to relu, as it was in all previous attempts. 
 - This model version produced an accuracy score of 61.33%, similar to the others.  
 - That training epochs returned accuracy scores as high as the low 80% in 100 epochs.  
 - Like all other neural networks attempted in this project, this version appeared to overfit the training data.
+
+![Iteration3_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/2067c2fb-337f-4140-877b-be405e29d4d2)
+
+![Iteration3](https://github.com/amydohlin/project-4-group-2/assets/151464511/83b0cb17-e76a-483c-be89-da499f3d89b7)
+
+![Iteration3-](https://github.com/amydohlin/project-4-group-2/assets/151464511/b5f5a4a1-14a9-419f-8190-abd2c4d04197)
+
+![Iteration3--](https://github.com/amydohlin/project-4-group-2/assets/151464511/5710b64d-9f7d-421c-b7e5-e176146cde63)
+
   
 ### __PHASE 5: Model Optimization__  
 - As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
