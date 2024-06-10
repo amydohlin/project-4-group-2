@@ -142,6 +142,15 @@ Information gleaned from Spark queries:
 - That training epochs returned accuracy scores as high as the mid 90% in 100 epochs.  
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
+![Iteration3_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/c4b26a60-397a-4f26-bd6c-5f78b03f4f57)
+
+![Iteration3](https://github.com/amydohlin/project-4-group-2/assets/151464511/3858b0e2-14d0-40b1-be50-7d8a83973155)
+
+![Iteration3-](https://github.com/amydohlin/project-4-group-2/assets/151464511/b742e6db-2c2c-474c-8abd-82c9b4e97c47)
+
+![Iteration3--](https://github.com/amydohlin/project-4-group-2/assets/151464511/af4f708e-af8f-4d8d-9537-7e6c65b99644)
+
+
 **Neural Network Model #4**
 - For the next four model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'.
 - We kept the activation to 'softmax' and the units to 3, to accommodate the three target variables created from the original "Stage' feature.
