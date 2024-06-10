@@ -121,7 +121,9 @@ Information gleaned from Spark queries:
 - This version of the model returned an accuracy score of 61.0% after 100 epochs.  
 - Again, the accuracy scores for the training epochs (reaching low 80%) were much higher than that for the test. The model was continuing to overfit. 
 
+![Version2_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/0667ade7-7253-4ca9-80e7-60eca3ea8806)
 
+![Version2](https://github.com/amydohlin/project-4-group-2/assets/151464511/57ebcdf9-3706-4a73-8d68-5e03879eecac)
 
 
 **Neural Network Model #3**  
