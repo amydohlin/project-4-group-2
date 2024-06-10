@@ -105,25 +105,47 @@ Information gleaned from Spark queries:
 ### __PHASE 5: Neural Network Models__   
 **Neural Network Model #1**
 - For the first iteration of the neural network model, we set the number of input features and number of nodes in the two hidden layers to equal the shape of the X_train_scaled dataset, 27.  
-- For the output layer we set the activation to 'softmax' and the units to 3, to accommodate the three target variable values. 
+- For the output layer we set the activation to 'softmax' and the units to 3, to accommodate the three target variable values in our single "Stage' feature. 
 - Hidden Layers 1 and 2 were activated with "relu".
 - We compiled the model with loss set to binary crossentropy, required given the number of target variable classes was above 2.
-- After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.9%.
-- This score was considerably lower than the accuracy scores returned during the training epochs, which reached as high as 70.0%.
-- We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was very likely overfitting. 
+- After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.5%.
+- This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range.  
+- We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was likely overfitting. 
 
 **Neural Network Model #2**
-- For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 54.  
+- For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 70 (35 in each layer).  
 - All other model chacteristics remained the same as in the previous version.  
-- This version of the model returned an accuracy score of 65.0% after 100 epochs.  
-- Again, the accuracy scores for the training epochs (reaching 92.8%) were much higher than that for the test. The model was continuing to overfit. 
+- This version of the model returned an accuracy score of 61.0% after 100 epochs.  
+- Again, the accuracy scores for the training epochs (reaching low 80%) were much higher than that for the test. The model was continuing to overfit. 
 
 **Neural Network Model #3**  
-- The third iteration of the model was similar to the previous iteration, but two additional hidden layers with 54 nodes each and relu activation were included in this attempt.
-- This model version produced an accuracy score of 63.4%, lower than the previous iteration.  
-- That training epochs returned accuracy scores as high as 98.0% in 100 epochs, but the score fell to 94.2% by the last epoch.
+- The third iteration of the model was similar to the previous iteration, but one additional hidden layer with 35 nodes and relu activation were included in this attempt.
+- This model version produced an accuracy score of 61.3%, similar to the previous two.  
+- That training epochs returned accuracy scores as high as the mid 90% in 100 epochs.  
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
+**Neural Network Model #4**
+- For the next four model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'. We kept the activation to 'softmax' and the units to 3, to accommodate the three target variables created from the original "Stage' feature. 
+- For the first iteration of the neural network model, we set the number of input features and number of nodes in the two hidden layers to equal the shape of the X_train_scaled dataset, 27.  
+- For the output layer we set the activation to 'softmax' and the units to 3, to accommodate the three target variable values in our single "Stage' feature. 
+- Hidden Layers 1 and 2 were activated with "relu".
+- We compiled the model with loss set to binary crossentropy, required given the number of target variable classes was above 2.
+- After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.5%.
+- This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range.  
+- We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was likely overfitting. 
+
+**Neural Network Model #5**
+- For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 70 (35 in each layer).  
+- All other model chacteristics remained the same as in the previous version.  
+- This version of the model returned an accuracy score of 61.0% after 100 epochs.  
+- Again, the accuracy scores for the training epochs (reaching low 80%) were much higher than that for the test. The model was continuing to overfit. 
+
+**Neural Network Model #6**  
+- The third iteration of the model was similar to the previous iteration, but one additional hidden layer with 35 nodes and relu activation were included in this attempt.
+- This model version produced an accuracy score of 61.3%, similar to the previous two.  
+- That training epochs returned accuracy scores as high as the mid 90% in 100 epochs.  
+- Like the two previous iterations, this version of the model appeared to overfit the training data.
+- 
 ### __PHASE 5: Neural Network Model Optimization__  
 - As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
   
