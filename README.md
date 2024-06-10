@@ -145,7 +145,7 @@ Information gleaned from Spark queries:
 - This model version produced an accuracy score of 61.33%, similar to the others.  
 - That training epochs returned accuracy scores as high as the low 80% in 100 epochs.  
 - Like all other neural networks attempted in this project, this version appeared to overfit the training data.
-- 
+  
 ### __PHASE 5: Neural Network Model Optimization__  
 - As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
   
