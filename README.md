@@ -206,7 +206,6 @@ Information gleaned from Spark queries:
 ### __PHASE 5: Model Optimization__  
 - As none of the first three iterations of our neural network achieved high accuracy scores, we evaluated other models attempting to increase the accuracy of our model
 
-  
 **Optimizing with Principal Component Analysis**
 - An optimization that we tried was a Principal Component Analysis model.
 - We used a standard scaler on the liver_clean_df to scale the data, then created the PCA model with n_components = 3.
@@ -232,7 +231,6 @@ Information gleaned from Spark queries:
 - Following PCA, we continued our efforts to increase our model accuracy by evaluating neural network model and Keras tunner optimization.
 - To start off, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on.
 
-      *__Can we make a correlation heatmap when Y has three classes?*__
 - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
 - The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
 - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
@@ -241,11 +239,9 @@ Information gleaned from Spark queries:
 
   - To start of, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on.
 
-      
     - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
     - The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
     - We also noticed a positive correlation of 0.39 between Ascites_N and Drug_Penicillamine and a positive correlation of 0.39 between Ascites_Y and Drug_Placebo. This appears logical because Penicillamine is a drug used to treat ascites. It stands to reason that patients receiving the Placebo instead of Penicillamine would be more likely to test positive for Ascites while those recieving the Penicillamine would be more likely to test negative for Ascites. 
-
 
   ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
@@ -369,7 +365,7 @@ __Age, feature importance 0.09__
 Visit Tableau dashboard to filter by stage: https://public.tableau.com/app/profile/anna.bitzer/viz/CirrhosisPredictionsNotebook/Top5RandomForestFeatures
 
 
-### Techniques/Skills Used:   
+### Techniques/Skills Used in this Project:   
 * Pandas  
 * Tableau  
 * Matplotlib  
@@ -378,8 +374,10 @@ Visit Tableau dashboard to filter by stage: https://public.tableau.com/app/profi
   * Principal Component Analysis
   * Random Forrest
   * Tensorflow
+* Data Transformation
 
 ### References & Acknowledgements:
 * We would like to thank our instructor Hunter Hollis, teaching assistant Randy Sendek and Sam Espe for their guidance throughout this project. They helped us further optimize our model by identifying the dataset output requirement and made recommendations on suitable  activation functions
 * Model optimization for multi-category output: https://stackoverflow.com/questions/61550026/valueerror-shapes-none-1-and-none-3-are-incompatible
 * Seaborn documentation: https://seaborn.pydata.org/generated/seaborn.heatmap.html
+* ChatGPT and the XpertLearning Assistant also offered support in debugging and correcting syntax 
