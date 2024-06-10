@@ -149,7 +149,8 @@ Information gleaned from Spark queries:
 
 **Optimizing the Neural Network model**
 - Following PCA, we continued our efforts to increase our model accuracy by evaluating neural network model and Keras tunner optimization
-  
+
+
   - To start of, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on
 
       *__Can we make a correlation heatmap when Y has three classes?*__
@@ -162,7 +163,7 @@ Information gleaned from Spark queries:
   
     ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
-Enhanced Neural Network Model:
+**Optimized Neural Network model**
 * Used a neural network model with Relu, sigmoid, softmax. Used training data to reach the above calculated accuracy 92.79%
 * Enhancements:
   * Used 3 output units in the output layer
