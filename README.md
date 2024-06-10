@@ -234,7 +234,7 @@ Information gleaned from Spark queries:
 
 - Following PCA, we continued our efforts to increase our model accuracy by evaluating neural network model and Keras tunner optimization
 
-- To start of, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on.
+- To start off, we further evaluated our dataset for areas of opportunities to clean and preprocess our data. We generated a correlation heatmap to view if there are key players we should narrow in our prediction on.
 
     - The correlation heatmap indicated the strongest positive correlation (0.65) between Spiders_N and Ascites_N and between Spiders_Y and Ascites_Y. This is to be expected as Spider angiomas tend to appear in patients with chronic liver disease and ascites.
     - The next highest positive correlation (0.42) is observed between Bilirubin and Status_D (Death). This is unsurprising as high bilirubin levels in the blood are indicative of improperly functioning liver, a risk factor for death in people with cirrhosis.
