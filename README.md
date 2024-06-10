@@ -110,13 +110,31 @@ Information gleaned from Spark queries:
 - We compiled the model with loss set to binary crossentropy, required given the number of target variable classes was above 2.
 - After fitting, compiling, and training the model (100 epochs), we noted an accuracy score of 62.5%.
 - This score was considerably lower than the accuracy scores returned during the training epochs, which reached into the low 80% range.  
-- We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was likely overfitting. 
+- We interpreted this results as indicative of the model learning the training data better than it was able to generalize to the new, testing, data. In other words, the model was likely overfitting.
+  
+![Iteration1_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/dafc25df-aaad-41ca-abb3-acecac34a1f4)
+
+![Iteration1-](https://github.com/amydohlin/project-4-group-2/assets/151464511/1b209712-d0df-45b9-b83d-48f589997eef)
+
+![Iteration1--](https://github.com/amydohlin/project-4-group-2/assets/151464511/cec4e5a8-2a98-41a3-a99f-a97e8698bf10)
+
+![Iteration1---](https://github.com/amydohlin/project-4-group-2/assets/151464511/03c6613e-da18-4828-bf61-297061fc7af9)
+
 
 **Neural Network Model #2**
 - For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 70 (35 in each layer).  
 - All other model chacteristics remained the same as in the previous version.  
 - This version of the model returned an accuracy score of 61.0% after 100 epochs.  
 - Again, the accuracy scores for the training epochs (reaching low 80%) were much higher than that for the test. The model was continuing to overfit. 
+
+![Iteration2_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/1f4c99bd-d8d7-4c30-97b5-97448fe62281)
+
+![Iteration2](https://github.com/amydohlin/project-4-group-2/assets/151464511/af7bcf53-d3b8-4b2c-91c5-03d1af1b3bbd)
+
+![Iterations2-](https://github.com/amydohlin/project-4-group-2/assets/151464511/2558f042-3fb5-4da3-b716-684241a5abf9)
+
+![Iteration2--](https://github.com/amydohlin/project-4-group-2/assets/151464511/dcb7ccd7-b533-4328-ac02-71ab24caba70)
+
 
 **Neural Network Model #3**  
 - The third iteration of the model was similar to the previous iteration, but one additional hidden layer with 35 nodes and relu activation were included in this attempt.
