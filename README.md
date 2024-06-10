@@ -159,7 +159,7 @@ Information gleaned from Spark queries:
 
 - For the next three model iterations we altered the 'Stage' target variable by encoding it, using OneHotEncoder, into three separate binary variables ('Stge_1', 'Stage_2', and 'Stage_3'.
 - We kept the activation to 'softmax' and the units to 3, to accommodate the three target variables created from the original "Stage' feature.
-- We coompiled the models with loss to 'sparse_categorical_crossentropy, which is called for when there are OneHotEncoded target variables.
+- We compiled the models with loss to 'sparse_categorical_crossentropy, which is called for when there are OneHotEncoded target variables.
 
 ======
 
