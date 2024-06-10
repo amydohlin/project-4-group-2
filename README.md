@@ -160,7 +160,7 @@ Information gleaned from Spark queries:
     ![06](https://github.com/amydohlin/project-4-group-2/assets/151464511/0412eaaf-0230-4a15-8f6d-fb51b14700f9)
 
 - Additionally, we created a boxplot to identify outliers that should be removed in order to enhance our prediction. Upon further analysis, no additional factors were removed
-  
+
     ![image](https://github.com/amydohlin/project-4-group-2/assets/42381263/93cebdc3-1cf6-4ebd-952f-f128f138cc64)
 
 **Optimized Neural Network model**
