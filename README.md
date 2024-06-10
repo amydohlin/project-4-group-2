@@ -144,11 +144,12 @@ Information gleaned from Spark queries:
 - Like the two previous iterations, this version of the model appeared to overfit the training data. 
 
 ![Version3_0](https://github.com/amydohlin/project-4-group-2/assets/151464511/91d5533f-fd84-4d66-a4b1-6b9ca79d97da)
-![Version3](https://github.com/amydohlin/project-4-group-2/assets/151464511/880708f3-d38a-4a3d-b6b9-09bb9f7fe79d)
-![Version3_](https://github.com/amydohlin/project-4-group-2/assets/151464511/a026ffc4-8fd8-4c2a-b263-5086ff7f18d0)
-![Version3__](https://github.com/amydohlin/project-4-group-2/assets/151464511/9ef90df2-bba2-4acd-8ac9-6190a3e3085a)
-![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/66ea1955-c696-4e5c-9f6f-1bea6897a9e3)
 
+![Version3](https://github.com/amydohlin/project-4-group-2/assets/151464511/880708f3-d38a-4a3d-b6b9-09bb9f7fe79d)
+
+![Version3_](https://github.com/amydohlin/project-4-group-2/assets/151464511/a026ffc4-8fd8-4c2a-b263-5086ff7f18d0)
+
+![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/66ea1955-c696-4e5c-9f6f-1bea6897a9e3)
 
 =======
 
