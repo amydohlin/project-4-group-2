@@ -147,7 +147,7 @@ Information gleaned from Spark queries:
 
 ![Version3](https://github.com/amydohlin/project-4-group-2/assets/151464511/880708f3-d38a-4a3d-b6b9-09bb9f7fe79d)
 
-![Version3_](https://github.com/amydohlin/project-4-group-2/assets/151464511/a026ffc4-8fd8-4c2a-b263-5086ff7f18d0)
+![Version3_](https://github.com/amydohlin/project-4-group-2/assets/151464511/3d2185ea-cf24-433d-aba5-9c237892ca1e)
 
 ![Version3_matrix](https://github.com/amydohlin/project-4-group-2/assets/151464511/66ea1955-c696-4e5c-9f6f-1bea6897a9e3)
 
