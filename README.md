@@ -118,7 +118,7 @@ Information gleaned from Spark queries:
 
 ![Version1--](https://github.com/amydohlin/project-4-group-2/assets/151464511/c0e02769-283f-489d-b211-2fb4958291b0)
 
-![Version1---](https://github.com/amydohlin/project-4-group-2/assets/151464511/f3191116-0c11-4189-ac26-25a39b4b041a)
+![Version1---](https://github.com/amydohlin/project-4-group-2/assets/151464511/4ba20c14-9c3a-4cd0-81b7-b0f4e3860a3a)
 
 **Neural Network Model #2**
 - For the second iteration of the neural network model, we kept the number of input features at 27 but doubled the nodes in the hidden layers to 70 (35 in each layer).  
