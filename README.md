@@ -100,7 +100,8 @@ Information gleaned from Spark queries:
 - We defined X as the values in all other columns of the dataframe (except the three Stage features. X=liver_clean_df.drop(["Stage_1", "Stage_2", "Stage_3"],axis=1) This left the X data with 27 features. 
 - To prepare for the neural networks models, we split the preprocessd data into training and testing datasets for X and Y.
 - Next, we used the StandardScalar method to scale the X_train and X_test data, which we saved as NumPy arrays called X_train_scaled and X_test_scaled.
-- Because the Y data was stored as a pandas DataFrame, we used .to_numpy on Y_train and Y_test to convert them to arrays. 
+- Because the Y data was stored as a pandas DataFrame, we used .to_numpy on Y_train and Y_test to convert them to arrays.
+- Because 'Stage' labels were originally encoded as 1, 2, and 3, but sparse_categorical_entropy expects values of 0, 1,and 2, we had to adjust y_train and y_test by subtracting 1 from all values to create y_train_adjusted = y_train - 1 and y_test_adjusted = y_test - 1.
 
 ### __PHASE 5: Neural Network Models__   
 **Neural Network Model #1**
